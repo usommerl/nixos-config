@@ -11,6 +11,7 @@
     ripgrep
     jq
     fzf
+    viddy
     mtr
     btop
     usbutils
