@@ -16,6 +16,7 @@
     btop
     usbutils
     lm_sensors
+    google-chrome
   ];
 
   home.file.".xinitrc".text = ''
