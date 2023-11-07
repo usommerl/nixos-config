@@ -17,5 +17,10 @@
     usbutils
     lm_sensors
   ];
+
+  home.file.".xinitrc".text = ''
+    #!/bin/sh
+    exec awesome
+  '';
 }
 
