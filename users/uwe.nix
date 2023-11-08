@@ -7,6 +7,8 @@
 
   programs.home-manager.enable = true;
 
+  nixpkgs.config.allowUnfree = true;
+
   home.packages = with pkgs; [
     ripgrep
     jq

@@ -7,7 +7,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, ... }: {
+  outputs = { self, nixpkgs, home-manager, ... }@inputs: {
     nixosConfigurations = {
 
       ares = nixpkgs.lib.nixosSystem {
@@ -16,6 +16,7 @@
 	modules = [
 	  ./system/configuration.nix
           home-manager.nixosModules.home-manager {
+	    nixpkgs.config.allowUnfree = true;
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.uwe = import ./users/uwe.nix;
