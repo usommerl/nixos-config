@@ -14,11 +14,13 @@
     jq
     fzf
     viddy
+    xclip
     mtr
     btop
     usbutils
     lm_sensors
     google-chrome
+    neovim
   ];
 
   home.file.".xinitrc".text = ''
