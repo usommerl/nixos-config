@@ -58,7 +58,7 @@
     layout = "de";
     xkbVariant = "nodeadkeys";
     
-    libinput.enable = false;
+    libinput.enable = true;
     displayManager.startx.enable = true;
     windowManager.awesome.enable = true;
   };
