@@ -67,12 +67,16 @@
   services.openssh.enable = true;
   services.openssh.settings.PermitRootLogin = "no";
 
+
   sound.enable = true;
   hardware.pulseaudio.enable = true;
+
+  programs.fish.enable = true;
 
   users.users.uwe = {
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" ];
+    shell = pkgs.fish;
   };
 
   system.stateVersion = "23.05";
