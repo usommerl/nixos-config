@@ -128,6 +128,10 @@
      gtr="git trim";
      gw="git worktree";
     };
+    shellAliases = {
+      l="eza -lg --time-style=long-iso --git";
+      ll="l -a";
+    };
   };
 
   home.file.".xinitrc".text = ''
