@@ -9,11 +9,13 @@
     bat
     btop
     direnv
+    docker-compose
     du-dust
     eza
     fzf
     git-trim
     google-chrome
+    grc
     jq
     lm_sensors
     mtr
@@ -27,6 +29,10 @@
 
   programs.home-manager.enable = true;
   programs.starship.enable = true;
+  programs.nix-index = {
+    enable = true;
+    enableFishIntegration = true;
+  };
 
   programs.fish = {
     enable = true;

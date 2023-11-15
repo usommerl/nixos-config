@@ -39,13 +39,9 @@
     curl
   ];
 
-  time.timeZone = "Europe/Berlin";
-
-
   networking.hostName = "ares";
   networking.networkmanager.enable = true;
   networking.firewall.enable = false;
-
 
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
@@ -53,6 +49,9 @@
     useXkbConfig = true;
   };
 
+  services.printing.enable = true;
+  services.openssh.enable = true;
+  services.openssh.settings.PermitRootLogin = "no";
   services.xserver = {
     enable = true;
     layout = "de";
@@ -63,19 +62,17 @@
     windowManager.awesome.enable = true;
   };
 
-  services.printing.enable = true;
-  services.openssh.enable = true;
-  services.openssh.settings.PermitRootLogin = "no";
 
-
+  time.timeZone = "Europe/Berlin";
   sound.enable = true;
   hardware.pulseaudio.enable = true;
 
+  virtualisation.docker.enable = true;
   programs.fish.enable = true;
 
   users.users.uwe = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" ];
+    extraGroups = [ "wheel" "networkmanager" "docker" ];
     shell = pkgs.fish;
   };
 
