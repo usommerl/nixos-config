@@ -17,6 +17,8 @@
     google-chrome
     grc
     jq
+    kubectl
+    kubectx
     lm_sensors
     mtr
     neovim
@@ -59,6 +61,12 @@
      v="nvim";
      vi="nvim";
      watch="viddy";
+
+     k="kubectl";
+     kc="kubectx";
+     kn="kubens";
+     kg="kubectl get";
+     kd="kubectl describe";
 
      g="git";
      ga="git add";
