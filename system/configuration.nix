@@ -69,6 +69,7 @@
 
   virtualisation.docker.enable = true;
   programs.fish.enable = true;
+  programs.command-not-found.enable = false;
 
   users.users.uwe = {
     isNormalUser = true;

@@ -31,10 +31,6 @@
 
   programs.home-manager.enable = true;
   programs.starship.enable = true;
-  programs.nix-index = {
-    enable = true;
-    enableFishIntegration = true;
-  };
 
   programs.fish = {
     enable = true;
