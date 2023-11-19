@@ -130,6 +130,12 @@
     };
   };
 
+  programs.git = {
+    enable = true;
+    userName = "Uwe Sommerlatt";
+    userEmail = "uwe.sommerlatt@gmail.com";
+  };
+
   home.file.".xinitrc".text = ''
     #!/bin/sh
     exec awesome
