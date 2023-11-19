@@ -200,6 +200,8 @@
     enableFishIntegration = true;
     extraFlags = [
       "--quiet"
+      "--nogui"
+      "--ignore-missing"
     ];
     keys = [
       "id_rsa"
