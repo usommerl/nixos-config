@@ -32,6 +32,7 @@
 
   programs.home-manager.enable = true;
   programs.starship.enable = true;
+  programs.bash.enable = true;
 
   programs.fish = {
     enable = true;
@@ -168,6 +169,7 @@
 
       init = {
         defaultBranch = "main";
+	templatedir = "~/.git-templates";
       };
 
       merge = {
@@ -213,5 +215,22 @@
     #!/bin/sh
     exec awesome
   '';
+
+  home.file.".git-templates/hooks/prepare-commit-msg" = {
+    executable = true;
+    text = ''
+      #!/bin/bash
+
+      branchName=$(git rev-parse --abbrev-ref HEAD)
+      jiraId=$(echo $branchName | sed -nr 's,[a-z]+/([A-Z]+-[0-9]+).*,\1,p')
+
+      # $1 is the name of the file containing the commit message
+      # $2 is empty if it's a regular commit (no merge, amend, squash,...)
+
+      if [ ! -z "$jiraId" ] && [ -z "$2" ]; then
+       sed -i.bak -e "1s/^/\n\n[$jiraId]\n/" $1
+      fi
+    '';
+  };
 }
 
