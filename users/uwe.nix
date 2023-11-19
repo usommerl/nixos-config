@@ -13,6 +13,7 @@
     du-dust
     eza
     fzf
+    gitflow
     git-trim
     google-chrome
     grc
@@ -134,6 +135,76 @@
     enable = true;
     userName = "Uwe Sommerlatt";
     userEmail = "uwe.sommerlatt@gmail.com";
+
+    delta = {
+      enable = true;
+      options = {
+        navigate = true;
+	line-numbers = true;
+	diff-highlight = true;
+	hunk-header-style = "hidden";
+	file-style = "blue";
+	file-decoration-style = "omit";
+	line-numbers-left-format = "{nm:^4}⋮ ";
+	line-numbers-right-format = "{np:^4}│ ";
+	line-numbers-left-style = "#777777";
+	line-numbers-right-style = "#777777";
+	line-numbers-zero-style = "#777777";
+	line-numbers-minus-style = "#BB0000";
+	line-numbers-plus-style = "#009900";
+      };
+    };
+
+    extraConfig = {
+      color.ui = true;
+      pull.rebase = true;
+      core.editor = "nvim";
+
+      diff.submodule = "diff";
+      format.pretty = "fuller";
+
+      "gitflow \"prefix\"".versiontag = "v";
+      "gitflow \"branch\"".master = "main";
+
+      init = {
+        defaultBranch = "main";
+      };
+
+      merge = {
+        tool = "nvim";
+	ff = false;
+	conflictstyle = "diff3";
+      };
+
+      mergetool.prompt = false;
+      "mergetool \"nvim\"".cmd = "cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'";
+
+      push = {
+        default = "simple";
+	followTags = true;
+	recourseSubmodules = "check";
+      };
+
+      rebase = {
+        autoStash = true;
+	autoSquash = true;
+      };
+
+      status.submodulesummary = true;
+      trim.bases = "develop,master,main";
+    };
+  };
+
+  programs.keychain = {
+    enable = true;
+    enableFishIntegration = true;
+    extraFlags = [
+      "--quiet"
+    ];
+    keys = [
+      "id_rsa"
+      "id_ed25519"
+    ];
   };
 
   home.file.".xinitrc".text = ''
