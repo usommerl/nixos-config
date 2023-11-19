@@ -34,6 +34,11 @@
   programs.starship.enable = true;
   programs.bash.enable = true;
 
+  programs.atuin = {
+    enable = true;
+    enableFishIntegration = true;
+  };
+
   programs.fish = {
     enable = true;
     loginShellInit = ''
