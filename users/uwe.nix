@@ -48,6 +48,7 @@
     '';
     shellAbbrs = {
      "-"="cd -";
+     ".."="cd ..";
      c="docker-compose";
      cat="bat";
      d="docker";
@@ -170,7 +171,6 @@
     extraConfig = {
 
       color.ui = true;
-      core.editor = "nvim";
       diff.submodule = "diff";
       format.pretty = "fuller";
       pull.rebase = true;
@@ -182,9 +182,14 @@
       "mergetool".prompt = false;
       "mergetool \"nvim\"".cmd = "cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'";
 
+      core = {
+        editor = "nvim";
+	excludesfile = "${config.xdg.configHome}/git/gitignore";
+      };
+
       init = {
         defaultBranch = "main";
-	templatedir = "~/.git-templates";
+	templatedir = "${config.xdg.configHome}/git/templates";
       };
 
       merge = {
@@ -226,10 +231,10 @@
     exec awesome
   '';
 
-  home.file.".git-templates/hooks/prepare-commit-msg" = {
+  home.file."${config.xdg.configHome}/git/templates/hooks/prepare-commit-msg" = {
     executable = true;
     text = ''
-      #!/bin/bash
+      #!/usr/bin/env bash
 
       branchName=$(git rev-parse --abbrev-ref HEAD)
       jiraId=$(echo $branchName | sed -nr 's,[a-z]+/([A-Z]+-[0-9]+).*,\1,p')
@@ -242,5 +247,19 @@
       fi
     '';
   };
+
+  home.file."${config.xdg.configHome}/git/gitignore". text = ''
+    .idea/
+    .vscode/
+
+    .bloop/
+    .metals/
+    .bsp/
+    project/metals.sbt
+    project/project/
+
+    .envrc
+    *.worksheet.sc
+  '';
 }
 
