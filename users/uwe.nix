@@ -123,8 +123,6 @@
      gst="git status --short -b";
      gstl="git status --long";
      gsu="git submodule";
-     gsuf="git submodule foreach";
-     gsuurrr="git submodule update --remote --rebase --recursive";
      gsw="git sw";
      gt="git tag";
      gtl="git tag --list | sort -V";
@@ -162,15 +160,19 @@
     };
 
     extraConfig = {
-      color.ui = true;
-      pull.rebase = true;
-      core.editor = "nvim";
 
+      color.ui = true;
+      core.editor = "nvim";
       diff.submodule = "diff";
       format.pretty = "fuller";
+      pull.rebase = true;
+      status.submodulesummary = true;
+      trim.bases = "develop,master,main";
 
-      "gitflow \"prefix\"".versiontag = "v";
       "gitflow \"branch\"".master = "main";
+      "gitflow \"prefix\"".versiontag = "v";
+      "mergetool".prompt = false;
+      "mergetool \"nvim\"".cmd = "cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'";
 
       init = {
         defaultBranch = "main";
@@ -183,9 +185,6 @@
 	conflictstyle = "diff3";
       };
 
-      mergetool.prompt = false;
-      "mergetool \"nvim\"".cmd = "cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'";
-
       push = {
         default = "simple";
 	followTags = true;
@@ -197,8 +196,6 @@
 	autoSquash = true;
       };
 
-      status.submodulesummary = true;
-      trim.bases = "develop,master,main";
     };
   };
 
