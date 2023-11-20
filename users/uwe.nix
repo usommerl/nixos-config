@@ -108,8 +108,8 @@
      gfrp="git flow release publish";
      gfrs="git flow release start";
      gin="git in";
-     gl="git log --pretty=format:'%Cred%h%Creset%C(yellow)%d%Creset %s %Cgreen(%ad) %Cblue<%an>%Creset' --date=short";
-     glg="git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ad) %Cblue<%an>%Creset' --date=short --graph";
+     gl="git lo";
+     glg="git lo --graph";
      gll="git log --stat";
      gout="git out";
      gpl="git pull";
@@ -157,6 +157,14 @@
 	line-numbers-minus-style = "#BB0000";
 	line-numbers-plus-style = "#009900";
       };
+    };
+
+    aliases = {
+      "fd" = "!f(){ git log --oneline $@ | sed -nr 's/.*Merged in .*\\/([A-Z]+-[0-9]+).*/\\1/p' | tr '\\n' ' ' | tee /dev/tty | xclip -i -sel clipboard; }; f";
+      "in" = "!f(){ local b=$(git symbolic-ref --short HEAD); local r=\${1:-origin}; git fetch $r $b; git lo \${2:-} ..$r/$b; }; f";
+      "lo" = "!f(){ git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ad) %Cblue<%an>%Creset' --date=short $@; }; f";
+      "out" = "!f() { local b=$(git symbolic-ref --short HEAD); local r=\${1:-origin}; git lo \${2:-} $r/$b..; }; f";
+      "sw" = "!f(){ git switch \"$(git branch --all | fzf | sed -r 's/^[ \\*]*(remotes\\/\\w+\\/)?//g')\"; }; f";
     };
 
     extraConfig = {
