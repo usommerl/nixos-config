@@ -24,6 +24,7 @@
     mtr
     neovim
     ripgrep
+    ugrep
     usbutils
     viddy
     xclip
