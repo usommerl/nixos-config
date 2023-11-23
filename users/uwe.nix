@@ -12,6 +12,7 @@
     docker-compose
     du-dust
     eza
+    fd
     fzf
     gitflow
     git-trim
