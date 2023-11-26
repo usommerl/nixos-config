@@ -43,14 +43,17 @@
 
   programs.fish = {
     enable = true;
+
     interactiveShellInit = ''
       set fish_greeting # Disable greeting
-    '';
-    loginShellInit = ''
-      if test -z "$DISPLAY" -a "$XDG_VTNR" = 1
-      	exec startx -- -keeptty &> /dev/null
+
+      if status --is-login
+        if test -z "$DISPLAY" -a "$XDG_VTNR" = 1
+          exec startx -- -keeptty &> /dev/null
+        end
       end
     '';
+
     shellAbbrs = {
      "-"="cd -";
      ".."="cd ..";
