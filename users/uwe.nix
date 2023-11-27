@@ -45,6 +45,7 @@
     enable = true;
 
     interactiveShellInit = ''
+      bind \t accept-autosuggestion
       set fish_greeting # Disable greeting
 
       if status --is-login
