@@ -138,10 +138,15 @@
      gtr="git trim";
      gw="git worktree";
     };
+
     shellAliases = {
       l="eza -lg --time-style=long-iso --git";
       ll="l -a";
     };
+
+    plugins = [
+      { name = "fzf-fish"; src = pkgs.fishPlugins.fzf-fish.src; }
+    ];
   };
 
   programs.git = {
