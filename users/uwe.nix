@@ -32,7 +32,6 @@
     zoxide
   ];
 
-  programs.alacritty.enable = true;
   programs.home-manager.enable = true;
   programs.starship.enable = true;
   programs.bash.enable = true;
@@ -276,17 +275,5 @@
     .envrc
     *.worksheet.sc
   '';
-
-  xsession.windowManager.awesome = {
-    enable = true;
-    luaModules = with pkgs; [
-      luaPackages.vicious
-    ];
-  };
-
-  home.file."${config.xdg.configHome}/awesome" = {
-    recursive = true;
-    source = ../configuration/awesomewm;
-  };
 }
 

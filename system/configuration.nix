@@ -59,6 +59,7 @@
     
     libinput.enable = true;
     displayManager.startx.enable = true;
+    windowManager.awesome.enable = true;
   };
 
 
