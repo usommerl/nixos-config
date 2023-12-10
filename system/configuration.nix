@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ hyprland, config, pkgs, lib, ... }:
 
 {
   imports =
@@ -46,22 +46,12 @@
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
     font="Lat2-Terminus16";
-    useXkbConfig = true;
+    keyMap = "de";
   };
 
   services.printing.enable = true;
   services.openssh.enable = true;
   services.openssh.settings.PermitRootLogin = "no";
-  services.xserver = {
-    enable = true;
-    layout = "de";
-    xkbVariant = "nodeadkeys";
-    
-    libinput.enable = true;
-    displayManager.startx.enable = true;
-    windowManager.awesome.enable = true;
-  };
-
 
   time.timeZone = "Europe/Berlin";
   sound.enable = true;
