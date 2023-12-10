@@ -6,14 +6,10 @@
       # See https://wiki.hyprland.org/Configuring/Monitors/
       monitor=,preferred,auto,auto
 
-
       # See https://wiki.hyprland.org/Configuring/Keywords/ for more
 
       # Execute your favorite apps at launch
       # exec-once = waybar & hyprpaper & firefox
-
-      # Source a file (multi-file configs)
-      # source = ~/.config/hypr/myColors.conf
 
       # Set programs that you use
       $terminal = alacritty
@@ -40,11 +36,10 @@
       }
 
       general {
-          # See https://wiki.hyprland.org/Configuring/Variables/ for more
 
-          gaps_in = 5
-          gaps_out = 20
-          border_size = 2
+          gaps_in = 4
+          gaps_out = 8
+          border_size = 1
           col.active_border = rgba(33ccffee) rgba(00ff99ee) 45deg
           col.inactive_border = rgba(595959aa)
 
@@ -55,9 +50,7 @@
       }
 
       decoration {
-          # See https://wiki.hyprland.org/Configuring/Variables/ for more
-
-          rounding = 10
+          rounding = 0
 
           blur {
               enabled = true
@@ -100,13 +93,11 @@
       }
 
       gestures {
-          # See https://wiki.hyprland.org/Configuring/Variables/ for more
           workspace_swipe = false
       }
 
       misc {
-          # See https://wiki.hyprland.org/Configuring/Variables/ for more
-          force_default_wallpaper = -1 # Set to 0 to disable the anime mascot wallpapers
+          force_default_wallpaper = 0
       }
 
       # Example per-device config
@@ -128,19 +119,19 @@
 
       # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
       bind = $mainMod, RETURN, exec, $terminal
-      bind = $mainMod, C, killactive,
-      bind = $mainMod, M, exit,
+      bind = $mainMod SHIFT, C, killactive,
+      # bind = $mainMod, M, exit,
       bind = $mainMod, E, exec, $fileManager
       bind = $mainMod, V, togglefloating,
       bind = $mainMod, R, exec, $menu
       bind = $mainMod, P, pseudo, # dwindle
-      bind = $mainMod, J, togglesplit, # dwindle
+      # bind = $mainMod, J, togglesplit, # dwindle
 
       # Move focus with mainMod + arrow keys
-      bind = $mainMod, left, movefocus, l
-      bind = $mainMod, right, movefocus, r
-      bind = $mainMod, up, movefocus, u
-      bind = $mainMod, down, movefocus, d
+      bind = $mainMod, h, movefocus, l
+      bind = $mainMod, l, movefocus, r
+      bind = $mainMod, k, movefocus, u
+      bind = $mainMod, j, movefocus, d
 
       # Switch workspaces with mainMod + [0-9]
       bind = $mainMod, 1, workspace, 1
