@@ -33,6 +33,9 @@
           }
 
           sensitivity = 0 # -1.0 - 1.0, 0 means no modification.
+
+  	  repeat_delay = 300
+    	  repeat_rate = 50
       }
 
       general {
