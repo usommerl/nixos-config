@@ -116,7 +116,7 @@
       # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
       bind = $mainMod, RETURN, exec, $terminal
       bind = $mainMod SHIFT, C, killactive,
-      # bind = $mainMod, M, exit,
+      bind = $mainMod, M, fullscreen, 0
       bind = $mainMod, E, exec, $fileManager
       bind = $mainMod, V, togglefloating,
       bind = $mainMod, R, exec, $menu
