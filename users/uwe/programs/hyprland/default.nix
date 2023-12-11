@@ -124,7 +124,7 @@
       bind = $mainMod, V, togglefloating,
       bind = $mainMod, R, exec, $menu
       bind = $mainMod, P, pseudo, # dwindle
-      # bind = $mainMod, J, togglesplit, # dwindle
+      bind = $mainMod, Space, togglesplit, # dwindle
 
       # Move focus
       binde = $mainMod, h, movefocus, l
