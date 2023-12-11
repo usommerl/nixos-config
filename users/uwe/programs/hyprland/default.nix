@@ -124,22 +124,22 @@
       # bind = $mainMod, J, togglesplit, # dwindle
 
       # Move focus
-      bind = $mainMod, h, movefocus, l
-      bind = $mainMod, l, movefocus, r
-      bind = $mainMod, k, movefocus, u
-      bind = $mainMod, j, movefocus, d
+      binde = $mainMod, h, movefocus, l
+      binde = $mainMod, l, movefocus, r
+      binde = $mainMod, k, movefocus, u
+      binde = $mainMod, j, movefocus, d
 
       # Move window
-      bind = $mainMod SHIFT, h, movewindow, l
-      bind = $mainMod SHIFT, l, movewindow, r
-      bind = $mainMod SHIFT, k, movewindow, u
-      bind = $mainMod SHIFT, j, movewindow, d
+      binde = $mainMod SHIFT, h, movewindow, l
+      binde = $mainMod SHIFT, l, movewindow, r
+      binde = $mainMod SHIFT, k, movewindow, u
+      binde = $mainMod SHIFT, j, movewindow, d
 
       # Resize window
-      bind = $mainMod CTRL, h, resizeactive, -10 0
-      bind = $mainMod CTRL, l, resizeactive, 10 0
-      bind = $mainMod CTRL, k, resizeactive, 0 -10
-      bind = $mainMod CTRL, j, resizeactive, 0 10
+      binde = $mainMod CTRL, h, resizeactive, -10 0
+      binde = $mainMod CTRL, l, resizeactive, 10 0
+      binde = $mainMod CTRL, k, resizeactive, 0 -10
+      binde = $mainMod CTRL, j, resizeactive, 0 10
 
       # Switch workspaces with mainMod + [0-9]
       bind = $mainMod, 1, workspace, 1
