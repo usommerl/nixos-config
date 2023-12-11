@@ -60,6 +60,10 @@
   virtualisation.docker.enable = true;
   programs.fish.enable = true;
   programs.command-not-found.enable = false;
+  programs.hyprland = {
+    enable = true;
+    package = hyprland.packages.${pkgs.system}.hyprland;
+  };
 
   users.users.uwe = {
     isNormalUser = true;

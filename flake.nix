@@ -19,7 +19,6 @@
 	specialArgs = { inherit hyprland; };
 	modules = [
 	  ./system/configuration.nix
-          hyprland.nixosModules.default
           home-manager.nixosModules.home-manager {
 	    nixpkgs.config.allowUnfree = true;
             home-manager.useGlobalPkgs = true;
