@@ -102,12 +102,6 @@
           disable_hyprland_logo = true
       }
 
-      # Example per-device config
-      # See https://wiki.hyprland.org/Configuring/Keywords/#per-device-input-configs for more
-      device:epic-mouse-v1 {
-          sensitivity = -0.5
-      }
-
       # Example windowrule v1
       # windowrule = float, ^(kitty)$
       # Example windowrule v2
