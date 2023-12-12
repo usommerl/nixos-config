@@ -106,6 +106,8 @@
      gtl="git tag --list | sort -V";
      gtr="git trim";
      gw="git worktree";
+
+     nr="sudo nixos-rebuild switch --flake ~/.nixfiles";
     };
 
     shellAliases = {
