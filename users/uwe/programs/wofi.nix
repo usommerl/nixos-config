@@ -8,8 +8,9 @@
     };
 
     style = ''
-      * {
-        font-family: monospace;
+      #input {
+        box-shadow: none;
+	border-radius: 0px;
       }
 
       #input > image.right {
