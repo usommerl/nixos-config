@@ -5,5 +5,6 @@
     ./git
     ./hyprland
     ./keychain
+    ./wofi.nix
   ];
 }

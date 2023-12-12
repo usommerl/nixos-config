@@ -12,7 +12,7 @@
       # Set programs that you use
       $terminal = alacritty
       $fileManager = dolphin
-      $menu = wofi --show drun
+      $menu = wofi --hide-scroll --insensitive --gtk-dark --prompt "" --show run
       # Some default env vars.
       env = XCURSOR_SIZE,24
 
