@@ -5,6 +5,7 @@
     settings = {
       key_down = "Control_L-n";
       key_up = "Control_L-p";
+      width = 350;
     };
 
     style = ''
