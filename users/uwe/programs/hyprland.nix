@@ -133,6 +133,10 @@
       bind = $mainMod SHIFT, 8, movetoworkspacesilent, 8
       bind = $mainMod SHIFT, 9, movetoworkspacesilent, 9
       bind = $mainMod SHIFT, 0, movetoworkspacesilent, 10
+
+      # "Hide" client by moving it to the special workspace
+      bind = $mainMod, n, movetoworkspacesilent, special
+      bind = $mainMod SHIFT, n, togglespecialworkspace 
     '';
   };
 }
