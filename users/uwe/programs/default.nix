@@ -7,5 +7,6 @@
     ./hyprland.nix
     ./keychain.nix
     ./wofi.nix
+    ./starship.nix
   ];
 }
