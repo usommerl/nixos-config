@@ -136,7 +136,7 @@
 
       # "Hide" client by moving it to the special workspace
       bind = $mainMod, n, movetoworkspacesilent, special
-      bind = $mainMod SHIFT, n, togglespecialworkspace 
+      bind = $mainMod CTRL, n, togglespecialworkspace 
     '';
   };
 }
