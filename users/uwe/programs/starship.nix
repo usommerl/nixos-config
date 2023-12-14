@@ -81,8 +81,7 @@
     # - https://github.com/direnv/direnv/issues/68#issuecomment-1535044690
     [custom.direnv]
     style = "fg:yellow bold"
-    symbol = "\\$"
-    format = "with [''${symbol}direnv]($style) "
+    format = "with [\\$direnv]($style) "
     when = "printenv DIRENV_FILE"
 
     [aws]
