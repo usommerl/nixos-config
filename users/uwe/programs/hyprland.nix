@@ -1,7 +1,7 @@
 {
   wayland.windowManager.hyprland = {
     enable = true;
-    systemdIntegration = true;
+    systemd.enable = true;
     extraConfig = ''
       # See https://wiki.hyprland.org/Configuring/Monitors/
       monitor=,preferred,auto,auto
