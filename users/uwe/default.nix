@@ -13,6 +13,8 @@
     stateVersion = "23.05";
   };
 
+  fonts.fontconfig.enable = true; 
+
   home.packages = with pkgs; [
     bat
     btop
@@ -32,11 +34,11 @@
     xclip
     viddy
     zoxide
+    (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
   ];
 
   programs.home-manager.enable = true;
   programs.starship.enable = true;
   programs.bash.enable = true;
-  programs.alacritty.enable = true;
 }
 
