@@ -1,4 +1,10 @@
 {
+
+  imports = [
+    ./waybar.nix
+    ./wofi.nix
+  ];
+
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.enable = true;
@@ -6,8 +12,7 @@
       # See https://wiki.hyprland.org/Configuring/Monitors/
       monitor=,preferred,auto,auto
 
-      # Execute your favorite apps at launch
-      # exec-once = waybar & hyprpaper & firefox
+      # exec-once = waybar 
 
       # Set programs that you use
       $terminal = alacritty
@@ -91,6 +96,7 @@
       bind = $mainMod, R, exec, $menu
       bind = $mainMod, P, pseudo, # dwindle
       bind = $mainMod, Space, togglesplit, # dwindle
+      bind = $mainMod, B, exec, pkill -SIGUSR1 '.*waybar.*' || waybar
 
       # Move focus
       binde = $mainMod, h, movefocus, l

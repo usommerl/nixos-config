@@ -15,7 +15,14 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, hyprland, ... }@inputs: {
+  outputs = inputs@{ 
+    self, 
+    nixpkgs, 
+    home-manager, 
+    hyprland, ... 
+  }: let 
+    username = "uwe";
+  in {
     nixosConfigurations = {
 
       ares = nixpkgs.lib.nixosSystem rec {
@@ -27,7 +34,7 @@
 	    nixpkgs.config.allowUnfree = true;
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.uwe = import ./users/uwe;
+            home-manager.users.${username} = import ./users/${username};
 	    home-manager.extraSpecialArgs = specialArgs;
           }
 	];

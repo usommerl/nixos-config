@@ -25,6 +25,7 @@
     jq
     kubectl
     kubectx
+    killall
     lm_sensors
     mtr
     neovim
