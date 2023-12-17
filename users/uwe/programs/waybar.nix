@@ -9,11 +9,14 @@
         layer = "top";
         position = "top";
 
-        modules-left = ["hyprland/workspaces"];
-        modules-center = [];
-        modules-right = [
-          "network"
+        modules-left = [
           "battery"
+          "network"
+	];
+        modules-center = [
+          "hyprland/workspaces"
+	];
+        modules-right = [
 	  "custom/clock"
         ];
 
@@ -25,9 +28,9 @@
             critical = 9;
           };
           format = "{icon} {capacity}%";
-	  format-charging = " {capacity}%";
-          format-plugged = " {capacity}%";
-          format-full = " {capacity}%";
+	  format-charging = "󰚥 {capacity}%";
+          format-plugged = "󰚥 {capacity}%";
+          format-full = "󰚥 {capacity}%";
           format-icons = [ "" "" "" "" "" ];
         };
 
@@ -78,14 +81,12 @@
            padding-right: 4px;
          }
          #workspaces button {
-           padding-top: 0px;
-           padding-bottom: 0px;
-           padding-left: 1px;
-           padding-right: 1px;
+           border-radius: 50%;
+           padding: 0px;
          }
          #workspaces button.active {
-           background-color: rgba(255, 255, 255, 0.8);
-           color: rgba(0, 0, 0, 1);
+           background-color: rgba(255, 255, 255, 0.15);
+           color: rgba(255, 255, 255, 1);
          }
          #workspaces button:hover {
            color: rgba(0, 0, 0, 1);
