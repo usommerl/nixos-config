@@ -7,5 +7,6 @@
     ./hyprland.nix
     ./keychain.nix
     ./starship.nix
+    ./vifm.nix
   ];
 }
