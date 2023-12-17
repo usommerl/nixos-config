@@ -36,7 +36,7 @@
           gaps_in = 4
           gaps_out = 8
           border_size = 1
-          col.active_border = rgba(33ccffee) rgba(00ff99ee) 45deg
+          col.active_border = rgba(ffcb6bee)
           col.inactive_border = rgba(00000000)
 
           layout = dwindle
