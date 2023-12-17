@@ -18,7 +18,7 @@
         ];
 
         battery = {
-          interval = 20;   
+          interval = 10;   
           states = {
             good = 80;
             warning = 50;
@@ -29,6 +29,7 @@
         };
 
         network = {
+	  interval = 10;
           format = "{ifname}";
           format-wifi = " {signalStrength}%";
           format-ethernet = " {ipaddr}/{cidr}";
@@ -94,6 +95,7 @@
          }
 	 #custom-clock {
 	   padding-right: 6px;
+	   padding-left: .5em;
 	   margin-left: 2px;
          }
 	 #network, #battery {
