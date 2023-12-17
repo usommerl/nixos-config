@@ -1,11 +1,6 @@
-{ hyprland, config, pkgs, ... }:
+{ hyprland, pkgs, ... }:
 
 {
-
-  imports = [ 
-    hyprland.homeManagerModules.default 
-    ./programs
-  ];
 
   home = {
     username = "uwe";
@@ -13,7 +8,10 @@
     stateVersion = "23.05";
   };
 
-  fonts.fontconfig.enable = true; 
+  imports = [ 
+    hyprland.homeManagerModules.default 
+    ./programs
+  ];
 
   home.packages = with pkgs; [
     bat
@@ -35,12 +33,14 @@
     xclip
     viddy
     zoxide
-    (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+    (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" "IBMPlexMono" ]; })
   ];
- 
-  _module.args.mainFontName = "JetBrainsMono Nerd Font";
 
+  _module.args.mainFontName = "BlexMono Nerd Font";
+
+  fonts.fontconfig.enable = true; 
   programs.home-manager.enable = true;
   programs.bash.enable = true;
+
 }
 
