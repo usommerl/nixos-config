@@ -37,7 +37,7 @@
           gaps_out = 8
           border_size = 1
           col.active_border = rgba(33ccffee) rgba(00ff99ee) 45deg
-          col.inactive_border = rgba(595959aa)
+          col.inactive_border = rgba(00000000)
 
           layout = dwindle
           allow_tearing = false
