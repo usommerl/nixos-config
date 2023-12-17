@@ -3,6 +3,10 @@
     enable = true;
     settings = {
       font.normal.family = "JetBrainsMono Nerd Font Mono";
+      window.padding = {
+        x = 4;
+        y = 4;
+      };
     };
   };
 }
