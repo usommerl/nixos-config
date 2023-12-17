@@ -9,6 +9,12 @@
     };
 
     style = ''
+      * {
+        font-family: "JetBrainsMono Nerd Font";
+        font-size: 10pt;
+        font-weight: normal;
+      }
+
       #input {
         box-shadow: none;
 	border-radius: 0px;
