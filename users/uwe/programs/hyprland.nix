@@ -33,8 +33,8 @@
       }
 
       general {
-          gaps_in = 4
-          gaps_out = 8
+          gaps_in = 1
+          gaps_out = 2
           border_size = 1
           col.active_border = rgba(ffcb6bee)
           col.inactive_border = rgba(00000000)

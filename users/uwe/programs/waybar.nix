@@ -94,9 +94,11 @@
          tooltip label {
            color: rgb(217, 224, 238);
          }
-	 #custom-clock, #network, #battery {
-	   padding-left: 10px;
-	   padding-right: 10px;
+	 #custom-clock {
+	   padding-right: 6px;
+         }
+	 #network, #battery {
+	   padding-right: 1em;
          }
          #workspaces button, #network, #custom-clock, #battery {
            color: rgba(255, 255, 255, 0.7);
