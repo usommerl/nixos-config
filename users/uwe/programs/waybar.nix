@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ mainFontName, ... }:
 
 {
   programs.waybar = {
@@ -25,6 +25,9 @@
             critical = 9;
           };
           format = "{icon} {capacity}%";
+	  format-charging = " {capacity}%";
+          format-plugged = " {capacity}%";
+          format-full = " {capacity}%";
           format-icons = [ "" "" "" "" "" ];
         };
 
@@ -47,7 +50,7 @@
 
     style = ''
          * {
-           font-family: "JetBrainsMono Nerd Font";
+           font-family: "${mainFontName}";
            font-size: 10pt;
            font-weight: normal;
            border-radius: 0px;

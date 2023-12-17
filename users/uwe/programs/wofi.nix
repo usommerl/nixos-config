@@ -1,3 +1,4 @@
+{ mainFontName, ... }:
 {
   programs.wofi = {
     enable = true;
@@ -10,7 +11,7 @@
 
     style = ''
       * {
-        font-family: "JetBrainsMono Nerd Font";
+        font-family: "${mainFontName}";
         font-size: 10pt;
         font-weight: normal;
       }

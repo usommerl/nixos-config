@@ -1,8 +1,9 @@
+{ mainFontName, ... }:
 {
   programs.alacritty = {
     enable = true;
     settings = {
-      font.normal.family = "JetBrainsMono Nerd Font Mono";
+      font.normal.family = "${mainFontName}";
       scrolling.history = 20000;
       window.padding = {
         x = 4;

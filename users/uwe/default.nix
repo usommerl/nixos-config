@@ -37,6 +37,8 @@
     zoxide
     (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
   ];
+ 
+  _module.args.mainFontName = "JetBrainsMono Nerd Font";
 
   programs.home-manager.enable = true;
   programs.bash.enable = true;
