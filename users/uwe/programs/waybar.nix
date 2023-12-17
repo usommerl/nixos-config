@@ -18,10 +18,11 @@
         ];
 
         battery = {
+          interval = 20;   
           states = {
-            good = 90;
+            good = 80;
             warning = 50;
-            critical = 25;
+            critical = 10;
           };
           format = "{icon} {capacity}%";
           format-icons = [ "" "" "" "" "" ];
@@ -55,7 +56,7 @@
          @keyframes blink_red {
            to {
              background-color: rgb(242, 143, 173);
-             color: rgb(26, 24, 38);
+             color: rgb(0, 0, 0);
            }
          }
          .warning, .critical, .urgent {
@@ -91,14 +92,15 @@
          tooltip {
            background: #222;
          }
-         tooltip label {
-           color: rgb(217, 224, 238);
-         }
 	 #custom-clock {
 	   padding-right: 6px;
+	   margin-left: 2px;
          }
 	 #network, #battery {
-	   padding-right: 1em;
+	   padding-right: .5em;
+	   padding-left: .5em;
+	   margin-right: 2px;
+	   margin-left: 2px;
          }
          #workspaces button, #network, #custom-clock, #battery {
            color: rgba(255, 255, 255, 0.7);
