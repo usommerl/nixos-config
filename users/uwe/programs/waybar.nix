@@ -67,7 +67,6 @@
          }
          window#waybar {
            background-color: rgba(255, 255, 255, 0.05);
-	   border-bottom: 3px solid #000
          }
          #workspaces {
            padding-left: 0px;
