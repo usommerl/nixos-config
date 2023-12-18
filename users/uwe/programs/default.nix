@@ -8,5 +8,6 @@
     ./keychain.nix
     ./starship.nix
     ./vifm.nix
+    ./zoxide.nix
   ];
 }
