@@ -37,6 +37,7 @@
     neovim
     git
     curl
+    tailscale
   ];
 
   networking.hostName = "ares";
@@ -49,6 +50,7 @@
     keyMap = "de";
   };
 
+  services.tailscale.enable = true;
   services.printing.enable = true;
   services.openssh.enable = true;
   services.openssh.settings.PermitRootLogin = "no";
