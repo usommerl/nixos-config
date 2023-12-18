@@ -74,7 +74,7 @@
            animation-direction: alternate;
          }
          window#waybar {
-           background-color: rgba(255, 255, 255, 0.05);
+           background-color: transparent;
          }
          #workspaces {
            padding-left: 0px;
