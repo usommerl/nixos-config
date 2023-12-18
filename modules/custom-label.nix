@@ -1,8 +1,10 @@
 { self, nixpkgs, ... }: let
   inherit (nixpkgs) lib;
+  inherit (lib) warn;
+  inherit (self) sourceInfo;
 in {
   system.nixos.label =
-  if self.sourceInfo ? lastModifiedDate && self.sourceInfo ? shortRev
-  then "${lib.substring 0 8 self.sourceInfo.lastModifiedDate}.${self.sourceInfo.shortRev}"
-  else lib.warn "Repo is dirty, revision will not be available in system label" "dirty";
+  if sourceInfo ? lastModifiedDate && sourceInfo ? shortRev
+  then "${sourceInfo.lastModifiedDate}.${sourceInfo.shortRev}-clean"
+  else warn "Repository is dirty!" "${sourceInfo.lastModifiedDate}.${sourceInfo.dirtyShortRev}";
 }
