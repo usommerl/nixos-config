@@ -27,9 +27,9 @@
 
       ares = nixpkgs.lib.nixosSystem rec {
 	system = "x86_64-linux";
-	specialArgs = { inherit hyprland; };
+	specialArgs = { inherit hyprland username; };
 	modules = [
-	  ./system/configuration.nix
+	  ./hosts/configuration.nix
           home-manager.nixosModules.home-manager {
 	    nixpkgs.config.allowUnfree = true;
             home-manager.useGlobalPkgs = true;
