@@ -114,9 +114,10 @@
      gtr="git trim";
      gw="git worktree";
 
-     nr="sudo nixos-rebuild switch --flake ~/.dotfiles";
+     ns="sudo nixos-rebuild switch --flake ~/.dotfiles";
      nt="sudo nixos-rebuild test --flake ~/.dotfiles";
      nb="sudo nixos-rebuild boot --flake ~/.dotfiles";
+     nl="nixos-rebuild list-generations --flake ~/.dotfiles";
     };
 
     shellAliases = {
