@@ -30,7 +30,7 @@
 	specialArgs = args;
 	modules = [
 	  ./hosts/configuration.nix
-	  ./modules/custom-label.nix
+	  ./modules/system-nixos-label.nix
           home-manager.nixosModules.home-manager {
 	    nixpkgs.config.allowUnfree = true;
             home-manager.useGlobalPkgs = true;
