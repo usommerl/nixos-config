@@ -16,18 +16,18 @@
   };
 
   outputs = inputs@{ 
-    self, 
     nixpkgs, 
     home-manager, 
-    hyprland, ... 
+    ... 
   }: let 
-    username = "uwe";
+    inherit (nixpkgs) lib;
+    args = lib.attrsets.mergeAttrsList [ {username = "uwe";} inputs ];
   in {
     nixosConfigurations = {
 
-      ares = nixpkgs.lib.nixosSystem rec {
+      ares = lib.nixosSystem rec {
 	system = "x86_64-linux";
-	specialArgs = { inherit self nixpkgs hyprland username; };
+	specialArgs = args;
 	modules = [
 	  ./hosts/configuration.nix
 	  ./modules/custom-label.nix
@@ -36,7 +36,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
 	    home-manager.extraSpecialArgs = specialArgs;
-            home-manager.users.${username} = import ./users/${username};
+            home-manager.users.${args.username} = import ./users/${args.username};
           }
 	];
       };
