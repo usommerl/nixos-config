@@ -16,7 +16,6 @@
   home.packages = with pkgs; [
     bat
     btop
-    direnv
     docker-compose
     du-dust
     google-chrome
