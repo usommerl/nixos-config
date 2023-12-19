@@ -20,12 +20,12 @@
     home-manager, 
     ... 
   }: let 
-    inherit (nixpkgs) lib;
-    args = lib.attrsets.mergeAttrsList [ {username = "uwe";} inputs ];
+    inherit (nixpkgs.lib) nixosSystem attrsets;
+    args = attrsets.mergeAttrsList [ {username = "uwe";} inputs ];
   in {
     nixosConfigurations = {
 
-      ares = lib.nixosSystem rec {
+      ares = nixosSystem rec {
 	system = "x86_64-linux";
 	specialArgs = args;
 	modules = [
