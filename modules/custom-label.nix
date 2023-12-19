@@ -4,15 +4,12 @@
   inherit (builtins) substring;
   inherit (self) sourceInfo;
 
-  formatDate = s : "${substring 0 4 s}-${substring 4 6 s}-${substring 6 8 s}";
-  formatTime = s : "${substring 8 10 s}:${substring 10 12 s}:${substring 12 14 s}";
+  formatDate = s : "${substring 0 4 s}-${substring 4 2 s}-${substring 6 2 s}";
+  formatTime = s : "${substring 8 2 s}:${substring 10 2 s}:${substring 12 2 s}";
   formatTimestamp = s : "${formatDate s}T${formatTime s}";
 
 in {
-
-  system.nixos.label =
-  if sourceInfo ? shortRev
-  then "${formatTimestamp sourceInfo.lastModifiedDate}.${sourceInfo.shortRev}-clean"
-  else warn "Repository is dirty!" "${formatTimestamp sourceInfo.lastModifiedDate}.${sourceInfo.dirtyShortRev}";
-
+  system.nixos.label = if sourceInfo ? shortRev
+    then "${formatTimestamp sourceInfo.lastModifiedDate}.${sourceInfo.shortRev}-clean"
+    else "${formatTimestamp sourceInfo.lastModifiedDate}.${sourceInfo.dirtyShortRev}";
 }
