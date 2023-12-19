@@ -50,6 +50,8 @@
     keyMap = "de";
   };
 
+  services.getty.helpLine = lib.mkForce "" ;
+
   services.tailscale.enable = true;
   services.printing.enable = true;
   services.openssh.enable = true;
