@@ -20,19 +20,19 @@
     du-dust
     google-chrome
     jq
+    killall
     kubectl
     kubectx
-    killall
+    libreoffice
     lm_sensors
     mtr
     neovim
+    (nerdfonts.override { fonts = [ "JetBrainsMono" "IBMPlexMono" ]; })
     ripgrep
     ugrep
     usbutils
-    xclip
     viddy
-    zoxide
-    (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" "IBMPlexMono" ]; })
+    xclip
   ];
 
   _module.args.mainFontName = "BlexMono Nerd Font";
