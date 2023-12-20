@@ -55,32 +55,12 @@
   services.tailscale.enable = true;
   services.openssh.enable = true;
   services.openssh.settings.PermitRootLogin = "no";
+  services.printing.enable = true;
 
   services.avahi = {
     enable = true;
     nssmdns4 = true;
     openFirewall = true;
-  };
-
-  services.printing = {
-    enable = true;
-    drivers = with pkgs; [ hplip ];
-  };
-
-  hardware.printers = {
-    ensurePrinters = [
-      {
-        name = "HP_LaserJet_Pro_MFP_4102_B3A98D";
-	description = "HP LaserJet Pro MFP 4102";
-        location = "Home";
-        deviceUri = "ipp://HP7C5758B3A98D.local:631/ipp/print";
-        model = "everywhere";
-        ppdOptions = {
-          PageSize = "A4";
-	  Duplex = "DuplexNoTumble";
-        };
-      }
-    ];
   };
 
   time.timeZone = "Europe/Berlin";
