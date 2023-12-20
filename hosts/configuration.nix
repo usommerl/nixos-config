@@ -51,8 +51,8 @@
   };
 
   services.getty.helpLine = lib.mkForce "" ;
-
   services.tailscale.enable = true;
+  services.resolved.enable = true;
   services.openssh.enable = true;
   services.openssh.settings.PermitRootLogin = "no";
   services.printing.enable = true;
