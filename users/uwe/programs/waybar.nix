@@ -38,7 +38,7 @@
 	  interval = 10;
           format = "{ifname}";
           format-wifi = " {signalStrength}%";
-          format-ethernet = " {ipaddr}/{cidr}";
+          format-ethernet = "󰲝 {ipaddr}/{cidr}";
           tooltip-format-wifi = "{essid}";
           on-click = "alacritty -e nmtui";
         };
