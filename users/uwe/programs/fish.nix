@@ -114,10 +114,10 @@
      gtr="git trim";
      gw="git worktree";
 
-     ns="sudo nixos-rebuild switch --flake ~/.dotfiles";
-     nt="sudo nixos-rebuild test --flake ~/.dotfiles";
-     nb="sudo nixos-rebuild boot --flake ~/.dotfiles";
-     nl="nixos-rebuild list-generations --flake ~/.dotfiles";
+     nrs="sudo nixos-rebuild switch --flake ~/.dotfiles";
+     nrt="sudo nixos-rebuild test --flake ~/.dotfiles";
+     nrb="sudo nixos-rebuild boot --flake ~/.dotfiles";
+     nrl="nixos-rebuild list-generations --flake ~/.dotfiles";
     };
 
     shellAliases = {
@@ -125,8 +125,8 @@
       ll="l -a";
     };
 
-    plugins = [
-      { name = "fzf-fish"; src = pkgs.fishPlugins.fzf-fish.src; }
+    plugins = with pkgs; [
+      { name = "fzf-fish"; src = fishPlugins.fzf-fish.src; }
     ];
   };
 }
