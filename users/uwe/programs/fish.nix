@@ -49,6 +49,7 @@
      v="nvim";
      vi="nvim";
      watch="viddy";
+     top="btop";
 
      k="kubectl";
      kc="kubectx";
