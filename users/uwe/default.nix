@@ -32,7 +32,7 @@
     ugrep
     usbutils
     viddy
-    xclip
+    wl-clipboard
   ];
 
   _module.args.mainFontName = "BlexMono Nerd Font";
