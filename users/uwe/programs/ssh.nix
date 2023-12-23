@@ -21,7 +21,7 @@
            };
          }
        )
-     [ "ares" "nyx" "dolus" ]
+     [ "ares" "dolus" "eris" "nyx" "ceto-mac" ]
     ));
   };
 }
