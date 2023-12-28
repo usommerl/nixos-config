@@ -3,6 +3,7 @@
 {
   imports =
     [
+      ../modules/system-nixos-label.nix
       ./hardware-configuration.nix
     ];
 
@@ -81,6 +82,7 @@
     shell = pkgs.fish;
   };
 
+  system.useVcsInfoForLabel = true;
   system.stateVersion = "23.05";
 }
 

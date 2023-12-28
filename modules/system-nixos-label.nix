@@ -1,6 +1,7 @@
-{ self, nixpkgs, ... }: let
+{ self, nixpkgs, lib, config, ... }:
+with lib;
+let
 
-  inherit (nixpkgs.lib) warn;
   inherit (builtins) substring;
   inherit (self) sourceInfo;
 
@@ -9,7 +10,13 @@
   formatTimestamp = s : "${formatDate s}T${formatTime s}";
 
 in {
-  system.nixos.label = if sourceInfo ? shortRev
-    then "${formatTimestamp sourceInfo.lastModifiedDate}.${sourceInfo.shortRev}-clean"
-    else "${formatTimestamp sourceInfo.lastModifiedDate}.${sourceInfo.dirtyShortRev}";
+
+  options.system.useVcsInfoForLabel = 
+    mkEnableOption "Use VCS information to create NixOS boot label";
+
+  config = mkIf config.system.useVcsInfoForLabel {
+    system.nixos.label = if sourceInfo ? shortRev
+      then "${formatTimestamp sourceInfo.lastModifiedDate}.${sourceInfo.shortRev}-clean"
+      else "${formatTimestamp sourceInfo.lastModifiedDate}.${sourceInfo.dirtyShortRev}";
+  };
 }
