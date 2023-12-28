@@ -4,7 +4,7 @@
 
   imports = [ 
     hyprland.homeManagerModules.default 
-    ../../modules/user.nix
+    ../../modules/user-home.nix
     ./programs
   ];
 
