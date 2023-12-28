@@ -9,8 +9,8 @@
 
   programs.git = {
     enable = true;
-    userName = "Uwe Sommerlatt";
-    userEmail = "uwe.sommerlatt@gmail.com";
+    userName = config.user.fullname;
+    userEmail = config.user.email;
 
     delta = {
       enable = true;

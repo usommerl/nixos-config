@@ -21,7 +21,7 @@
     ... 
   }: let 
     inherit (nixpkgs.lib) nixosSystem attrsets;
-    args = attrsets.mergeAttrsList [ {username = "uwe";} inputs ];
+    args = attrsets.mergeAttrsList [ { username = "uwe"; } inputs ];
   in {
     nixosConfigurations = {
 

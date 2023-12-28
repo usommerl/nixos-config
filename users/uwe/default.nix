@@ -1,17 +1,17 @@
-{ hyprland, pkgs, ... }:
+{ hyprland, pkgs, config, ... }:
 
 {
 
-  home = {
-    username = "uwe";
-    homeDirectory = "/home/uwe";
-    stateVersion = "23.05";
-  };
-
   imports = [ 
     hyprland.homeManagerModules.default 
+    ../../modules/user.nix
     ./programs
   ];
+
+  user = {
+    fullname = "Uwe Sommerlatt";
+    email = "uwe.sommerlatt@gmail.com";
+  };
 
   home.packages = with pkgs; [
     bat
@@ -40,5 +40,7 @@
   fonts.fontconfig.enable = true; 
   programs.home-manager.enable = true;
   programs.bash.enable = true;
+
+  home.stateVersion = "23.05";
 }
 
