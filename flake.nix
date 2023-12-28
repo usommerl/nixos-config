@@ -31,9 +31,11 @@
 	modules = [
 	  ./hosts/configuration.nix
 	  ./modules/system-nixos-label.nix
-	  ./modules/package-config.nix
           home-manager.nixosModules.home-manager 
 	  {
+            nixpkgs.config.allowUnfree = true;
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
 	    home-manager.extraSpecialArgs = specialArgs;
             home-manager.users.${args.username} = import ./users/${args.username};
           }
