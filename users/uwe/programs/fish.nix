@@ -119,6 +119,7 @@
      nrt="sudo nixos-rebuild test --flake ~/.dotfiles";
      nrb="sudo nixos-rebuild boot --flake ~/.dotfiles";
      nrl="nixos-rebuild list-generations --flake ~/.dotfiles";
+     nfu="nix flake update";
     };
 
     shellAliases = {
