@@ -19,15 +19,15 @@
     nixpkgs, 
     home-manager, 
     ... 
-  }: let 
+  }: 
+  let 
     inherit (nixpkgs.lib) nixosSystem attrsets;
-    args = attrsets.mergeAttrsList [ { username = "uwe"; } inputs ];
   in {
     nixosConfigurations = {
 
       ares = nixosSystem rec {
 	system = "x86_64-linux";
-	specialArgs = args;
+	specialArgs = (attrsets.mergeAttrsList [ { mainUser = "uwe"; } inputs ]);
 	modules = [
 	  ./hosts/configuration.nix
           home-manager.nixosModules.home-manager 
@@ -36,7 +36,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
 	    home-manager.extraSpecialArgs = specialArgs;
-            home-manager.users.${args.username} = import ./users/${args.username};
+            home-manager.users.${specialArgs.mainUser} = import ./users/${specialArgs.mainUser};
           }
 	];
       };

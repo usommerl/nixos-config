@@ -1,4 +1,4 @@
-{ pkgs, config, lib, hyprland, username, ... }:
+{ pkgs, config, lib, hyprland, mainUser, ... }:
 
 {
   imports =
@@ -76,7 +76,7 @@
     package = hyprland.packages.${pkgs.system}.hyprland;
   };
 
-  users.users.${username} = {
+  users.users.${mainUser} = {
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" "docker" ];
     shell = pkgs.fish;
