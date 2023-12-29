@@ -27,9 +27,9 @@
 
       ares = nixosSystem rec {
 	system = "x86_64-linux";
-	specialArgs = (attrsets.mergeAttrsList [ { mainUser = "uwe"; } inputs ]);
+	specialArgs = (attrsets.mergeAttrsList [ { mainUser = "uwe"; hostName = "ares"; } inputs ]);
 	modules = [
-	  ./hosts/configuration.nix
+	  ./hosts/${specialArgs.hostName}
           home-manager.nixosModules.home-manager 
 	  {
             nixpkgs.config.allowUnfree = true;

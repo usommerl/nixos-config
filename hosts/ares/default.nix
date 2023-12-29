@@ -1,9 +1,9 @@
-{ pkgs, config, lib, hyprland, mainUser, ... }:
+{ pkgs, config, lib, hyprland, hostName, mainUser, ... }:
 
 {
   imports =
     [
-      ../modules/system-nixos-label.nix
+      ../../modules/system-nixos-label.nix
       ./hardware-configuration.nix
     ];
 
@@ -41,7 +41,7 @@
     tailscale
   ];
 
-  networking.hostName = "ares";
+  networking.hostName = hostName;
   networking.networkmanager.enable = true;
   networking.firewall.enable = false;
 
