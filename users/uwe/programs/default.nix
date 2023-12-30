@@ -3,6 +3,7 @@
     ./alacritty.nix
     ./atuin.nix
     ./direnv.nix
+    ./feh.nix
     ./fish.nix
     ./git.nix
     ./hyprland.nix
