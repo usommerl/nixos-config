@@ -1,5 +1,9 @@
 { config, pkgs, ... }:
-
+let
+  # I have found no way to determine the directory of the flake in pure evaluation mode.
+  # Maybe this could be helpful in the future: https://github.com/NixOS/nix/issues/8034
+  flakeRoot = "~/.dotfiles";
+in
 {
 
   home.packages = with pkgs; [
@@ -115,10 +119,10 @@
      gtr="git trim";
      gw="git worktree";
 
-     nrs="sudo nixos-rebuild switch --flake ~/.dotfiles";
-     nrt="sudo nixos-rebuild test --flake ~/.dotfiles";
-     nrb="sudo nixos-rebuild boot --flake ~/.dotfiles";
-     nrl="nixos-rebuild list-generations --flake ~/.dotfiles";
+     nrs="sudo nixos-rebuild switch --flake ${flakeRoot}";
+     nrt="sudo nixos-rebuild test --flake ${flakeRoot}";
+     nrb="sudo nixos-rebuild boot --flake ${flakeRoot}";
+     nrl="nixos-rebuild list-generations --flake ${flakeRoot}";
      nfu="nix flake update";
     };
 
