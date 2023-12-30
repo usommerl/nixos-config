@@ -45,6 +45,7 @@
     mark r /
     mark h ~/
     mark d ~/downloads
+    mark D /mnt/${config.user.username}/data
     mark c ~/.dotfiles
     mark m /mnt
 

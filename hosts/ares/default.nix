@@ -1,5 +1,4 @@
 { pkgs, config, lib, hyprland, hostName, mainUser, ... }:
-
 {
   imports =
     [
@@ -39,6 +38,7 @@
     git
     curl
     tailscale
+    cifs-utils
   ];
 
   networking.hostName = hostName;
@@ -79,7 +79,23 @@
   users.users.${mainUser} = {
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" "docker" ];
+    uid = 1000;
     shell = pkgs.fish;
+  };
+
+  fileSystems."/mnt/${mainUser}/data" = {
+    device = "//harpocrates.tail15a8b.ts.net/home";
+    fsType = "cifs";
+    options =
+      let
+        uid = toString config.users.users.${mainUser}.uid;
+      in
+      [
+        "noauto,x-systemd.automount"
+        "x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s"
+        "uid=${uid},gid=100,dir_mode=0700,file_mode=0600,nobrl"
+        "credentials=/home/${mainUser}/.private/harpocrates"
+      ];
   };
 
   system.useVcsInfoForLabel = true;
