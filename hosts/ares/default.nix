@@ -84,7 +84,7 @@
   };
 
   fileSystems."/mnt/${mainUser}/data" = {
-    device = "//harpocrates.tail15a8b.ts.net/home";
+    device = "//harpocrates.tail15a8b.ts.net/homes/${mainUser}";
     fsType = "cifs";
     options =
       let
