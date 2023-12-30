@@ -11,6 +11,7 @@
     ./ssh.nix
     ./starship.nix
     ./vifm.nix
+    ./zathura.nix
     ./zoxide.nix
   ];
 }
