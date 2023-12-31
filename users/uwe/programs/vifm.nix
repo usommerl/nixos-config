@@ -3,6 +3,7 @@
 {
   home.packages = with pkgs; [
     vifm
+    mount-zip
   ];
 
   home.file."${config.xdg.configHome}/vifm/vifmrc".text = ''
@@ -186,8 +187,8 @@
     fileviewer *.torrent transmission-show %f
  
     filetype *.zip,*.jar,*.war,*.ear,*.oxt
-           \ {Mount with fuse-zip}
-           \ FUSE_MOUNT|fuse-zip -o allow_other %SOURCE_FILE %DESTINATION_DIR,
+           \ {Mount with mount-zip}
+           \ FUSE_MOUNT|mount-zip -o allow_other %SOURCE_FILE %DESTINATION_DIR,
            \ {View contents}
            \ zip -sf %c | less,
            \ {Extract here}
