@@ -17,6 +17,7 @@
     bat
     btop
     docker-compose
+    dogdns
     du-dust
     google-chrome
     jq
