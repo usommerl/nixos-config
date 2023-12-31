@@ -31,6 +31,7 @@
     ripgrep
     ugrep
     usbutils
+    usql
     viddy
     wl-clipboard
   ];
