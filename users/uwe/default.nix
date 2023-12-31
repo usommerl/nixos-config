@@ -16,6 +16,7 @@
   home.packages = with pkgs; [
     bat
     btop
+    certigo
     docker-compose
     dogdns
     du-dust
