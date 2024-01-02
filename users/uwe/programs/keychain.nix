@@ -1,15 +1,11 @@
+{ lib, pkgs, ... }:
 {
   programs.keychain = {
     enable = true;
-    enableFishIntegration = true;
-    extraFlags = [
-      "--quiet"
-      "--nogui"
-      "--ignore-missing"
-    ];
-    keys = [
-      "id_rsa"
-      "id_ed25519"
-    ];
+    enableFishIntegration = false;
   };
+
+  programs.fish.interactiveShellInit = lib.mkBefore ''
+    SHELL=fish eval (${pkgs.keychain}/bin/keychain --eval --quiet --nogui --ignore-missing id_rsa id_ed25519)
+  '';
 }
