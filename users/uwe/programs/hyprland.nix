@@ -98,6 +98,7 @@
       bind = $mainMod, Space, togglesplit, # dwindle
       bind = $mainMod, B, exec, pkill -SIGUSR1 '.*waybar.*' || waybar
       bind = $mainMod SHIFT, Pause, exec, systemctl suspend
+      bind = $mainMod SHIFT CTRL, s, exec, poweroff
 
       # Move focus
       binde = $mainMod, h, movefocus, l
