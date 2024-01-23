@@ -28,7 +28,6 @@
     libreoffice
     lm_sensors
     mtr
-    neovim
     (nerdfonts.override { fonts = [ "JetBrainsMono" "IBMPlexMono" ]; })
     ripgrep
     ugrep

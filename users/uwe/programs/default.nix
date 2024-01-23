@@ -8,6 +8,7 @@
     ./git.nix
     ./hyprland.nix
     ./keychain.nix
+    ./neovim
     ./ssh.nix
     ./starship.nix
     ./vifm.nix
