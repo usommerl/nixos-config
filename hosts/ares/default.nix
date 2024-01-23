@@ -34,11 +34,12 @@
 
   environment.variables.EDITOR = "nvim";
   environment.systemPackages = with pkgs; [
-    neovim
-    git
-    curl
-    tailscale
     cifs-utils
+    curl
+    git
+    google-drive-ocamlfuse
+    neovim
+    tailscale
   ];
 
   networking.hostName = hostName;
