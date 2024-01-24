@@ -40,6 +40,12 @@
         p.promise-async
       ];
 
+      statuscol = {
+        plugin = p.statuscol-nvim;
+        type = "lua";
+        config = builtins.readFile ./plugins/statuscol.lua;
+      };
+
       gitsigns = {
         plugin = p.gitsigns-nvim;
         type = "lua";
@@ -96,6 +102,7 @@
       nvim-tree
       nvim-ufo
       telescope
+      statuscol
     ];
 
     extraPackages = [
