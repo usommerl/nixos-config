@@ -59,6 +59,7 @@
           type = "lua";
           config = builtins.readFile ./plugins/telescope.lua;
         }
+        plenary-nvim
         telescope-undo-nvim
         telescope-fzf-native-nvim
         telescope-frecency-nvim
