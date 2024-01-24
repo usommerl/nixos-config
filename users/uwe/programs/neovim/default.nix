@@ -31,6 +31,12 @@
         config = builtins.readFile ./plugins/treesitter.lua;
       };
 
+      indent-blankline = {
+        plugin = p.indent-blankline-nvim;
+        type = "lua";
+        config = builtins.readFile ./plugins/indent-blankline.lua;
+      };
+
       nvim-ufo = [
         {
           plugin = p.nvim-ufo;
@@ -98,6 +104,7 @@
       treesitter
       gitsigns
       lualine
+      indent-blankline
       noice
       nvim-tree
       nvim-ufo
