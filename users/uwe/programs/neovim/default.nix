@@ -8,15 +8,15 @@
     vimAlias = true;
     defaultEditor = true;
 
-    plugins = let
+    plugins = with vimPlugins; let
 
       colorschemes = [
-        { plugin = vimPlugins.tokyonight-nvim; }
+        tokyonight-nvim
       ];
 
       gitsigns = [
         {
-          plugin = vimPlugins.gitsigns-nvim;
+          plugin = gitsigns-nvim;
           type = "lua";
           config = builtins.readFile ./plugins/gitsigns.lua;
         }
@@ -24,42 +24,42 @@
 
       lualine = [
         {
-          plugin = vimPlugins.lualine-nvim;
+          plugin = lualine-nvim;
           type = "lua";
           config = builtins.readFile ./plugins/lualine.lua;
         }
-        { plugin = vimPlugins.nvim-web-devicons; }
+        nvim-web-devicons
       ];
 
       nvim-tree = [
         {
-          plugin = vimPlugins.nvim-tree-lua;
+          plugin = nvim-tree-lua;
           type = "lua";
           config = builtins.readFile ./plugins/nvim-tree.lua;
         }
-        { plugin = vimPlugins.nvim-web-devicons; }
+        nvim-web-devicons
       ];
 
       telescope = [
         {
-          plugin = vimPlugins.telescope-nvim;
+          plugin = telescope-nvim;
           type = "lua";
           config = builtins.readFile ./plugins/telescope.lua;
         }
-        { plugin = vimPlugins.telescope-undo-nvim; }
-        { plugin = vimPlugins.telescope-fzf-native-nvim; }
-        { plugin = vimPlugins.telescope-frecency-nvim; }
-        { plugin = vimPlugins.telescope-zoxide; }
+        telescope-undo-nvim
+        telescope-fzf-native-nvim
+        telescope-frecency-nvim
+        telescope-zoxide
       ];
 
       noice = [
         {
-          plugin = vimPlugins.noice-nvim;
+          plugin = noice-nvim;
           type = "lua";
           config = builtins.readFile ./plugins/noice.lua;
         }
-        { plugin = vimPlugins.nui-nvim; }
-        { plugin = vimPlugins.nvim-notify; }
+        nui-nvim
+        nvim-notify
       ];
 
     in lib.lists.flatten [
