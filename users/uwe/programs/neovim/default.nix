@@ -6,6 +6,7 @@
     package = neovim-unwrapped;
     viAlias = true;
     vimAlias = true;
+    vimdiffAlias = true;
     defaultEditor = true;
 
     plugins = with vimPlugins; let
