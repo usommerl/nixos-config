@@ -9,7 +9,7 @@ require("statuscol").setup({
     },
     { text = { builtin.lnumfunc }, click = "v:lua.ScLa", },
     {
-      sign = { name = { ".*" }, maxwidth = 2, colwidth = 1, auto = false, fillchar = " " },
+      sign = { namespace = { ".*" }, maxwidth = 2, colwidth = 1, auto = false, fillchar = " " },
       click = "v:lua.ScSa"
     },
   }
