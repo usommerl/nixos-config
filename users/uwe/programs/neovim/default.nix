@@ -28,12 +28,6 @@
         config = builtins.readFile ./plugins/treesitter.lua;
       };
 
-      statuscol = {
-        plugin = statuscol-nvim;
-        type = "lua";
-        config = builtins.readFile ./plugins/statuscol.lua;
-      };
-
       gitsigns = {
         plugin = gitsigns-nvim;
         type = "lua";
@@ -88,7 +82,6 @@
       noice
       nvim-tree
       telescope
-      statuscol
     ];
 
     extraPackages = [
