@@ -65,6 +65,10 @@
     openFirewall = true;
   };
 
+  security.sudo.extraConfig = ''
+    Defaults        timestamp_timeout=15
+  '';
+
   time.timeZone = "Europe/Berlin";
   sound.enable = true;
   hardware.pulseaudio.enable = true;
