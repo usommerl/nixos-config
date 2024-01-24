@@ -22,13 +22,17 @@
         material-nvim
       ];
 
-      gitsigns = [
-        {
-          plugin = gitsigns-nvim;
-          type = "lua";
-          config = builtins.readFile ./plugins/gitsigns.lua;
-        }
-      ];
+      treesitter = {
+        plugin = nvim-treesitter.withAllGrammars;
+        type = "lua";
+        config = builtins.readFile ./plugins/treesitter.lua;
+      };
+
+      gitsigns = {
+        plugin = gitsigns-nvim;
+        type = "lua";
+        config = builtins.readFile ./plugins/gitsigns.lua;
+      };
 
       lualine = [
         {
@@ -72,6 +76,7 @@
 
     in lib.lists.flatten [
       colorschemes
+      treesitter
       gitsigns
       lualine
       noice
