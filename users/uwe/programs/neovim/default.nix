@@ -12,6 +12,14 @@
 
       colorschemes = [
         tokyonight-nvim
+        nightfox-nvim
+        edge
+        kanagawa-nvim
+        catppuccin-nvim
+        oceanic-next
+        vim-one
+        onenord-nvim
+        material-nvim
       ];
 
       gitsigns = [
