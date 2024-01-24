@@ -9,71 +9,82 @@
     vimdiffAlias = true;
     defaultEditor = true;
 
-    plugins = with vimPlugins; let
+    plugins = let
+
+      p = pkgs.vimPlugins;
 
       colorschemes = [
-        tokyonight-nvim
-        nightfox-nvim
-        edge
-        kanagawa-nvim
-        catppuccin-nvim
-        oceanic-next
-        vim-one
-        onenord-nvim
-        material-nvim
+        p.tokyonight-nvim
+        p.nightfox-nvim
+        p.edge
+        p.kanagawa-nvim
+        p.catppuccin-nvim
+        p.oceanic-next
+        p.vim-one
+        p.onenord-nvim
+        p.material-nvim
       ];
 
       treesitter = {
-        plugin = nvim-treesitter.withAllGrammars;
+        plugin = p.nvim-treesitter.withAllGrammars;
         type = "lua";
         config = builtins.readFile ./plugins/treesitter.lua;
       };
 
+      nvim-ufo = [
+        {
+          plugin = p.nvim-ufo;
+          type = "lua";
+          config = builtins.readFile ./plugins/nvim-ufo.lua;
+        }
+        p.promise-async
+      ];
+
       gitsigns = {
-        plugin = gitsigns-nvim;
+        plugin = p.gitsigns-nvim;
         type = "lua";
         config = builtins.readFile ./plugins/gitsigns.lua;
       };
 
       lualine = [
         {
-          plugin = lualine-nvim;
+          plugin = p.lualine-nvim;
           type = "lua";
           config = builtins.readFile ./plugins/lualine.lua;
         }
-        nvim-web-devicons
+        p.nvim-web-devicons
       ];
 
       nvim-tree = [
         {
-          plugin = nvim-tree-lua;
+          plugin = p.nvim-tree-lua;
           type = "lua";
           config = builtins.readFile ./plugins/nvim-tree.lua;
         }
-        nvim-web-devicons
+        p.nvim-web-devicons
       ];
 
       telescope = [
         {
-          plugin = telescope-nvim;
+          plugin = p.telescope-nvim;
           type = "lua";
           config = builtins.readFile ./plugins/telescope.lua;
         }
-        plenary-nvim
-        telescope-undo-nvim
-        telescope-fzf-native-nvim
-        telescope-frecency-nvim
-        telescope-zoxide
+        p.plenary-nvim
+        p.telescope-undo-nvim
+        p.telescope-fzf-native-nvim
+        p.telescope-frecency-nvim
+        p.telescope-zoxide
       ];
 
       noice = [
         {
-          plugin = noice-nvim;
+          plugin = p.noice-nvim;
           type = "lua";
           config = builtins.readFile ./plugins/noice.lua;
         }
-        nui-nvim
-        nvim-notify
+        p.nui-nvim
+        p.nvim-notify
       ];
 
     in lib.lists.flatten [
@@ -83,6 +94,7 @@
       lualine
       noice
       nvim-tree
+      nvim-ufo
       telescope
     ];
 
