@@ -69,6 +69,10 @@
     Defaults        timestamp_timeout=15
   '';
 
+  # See: https://github.com/NixOS/nixpkgs/issues/180175
+  systemd.services.NetworkManager-wait-online.enable = lib.mkForce false;
+  systemd.services.systemd-networkd-wait-online.enable = lib.mkForce false;
+
   time.timeZone = "Europe/Berlin";
   sound.enable = true;
   hardware.pulseaudio.enable = true;
