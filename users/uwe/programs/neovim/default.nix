@@ -46,6 +46,12 @@
         p.promise-async
       ];
 
+      nvim-surround = {
+        plugin = p.nvim-surround;
+        type = "lua";
+        config = ''require("nvim-surround").setup()'';
+      };
+
       statuscol = {
         plugin = p.statuscol-nvim;
         type = "lua";
@@ -108,6 +114,7 @@
       noice
       nvim-tree
       nvim-ufo
+      nvim-surround
       telescope
       statuscol
     ];
