@@ -128,6 +128,7 @@
       nvim-spectre
       telescope
       statuscol
+      p.sideways-vim
     ];
 
     extraPackages = [
