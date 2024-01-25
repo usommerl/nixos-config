@@ -136,6 +136,7 @@
       statuscol
       vim-rooter
       p.sideways-vim
+      p.markdown-preview-nvim
     ];
 
     extraPackages = [
