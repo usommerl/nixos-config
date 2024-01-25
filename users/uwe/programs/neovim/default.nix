@@ -52,6 +52,12 @@
         config = ''require("nvim-surround").setup()'';
       };
 
+      vim-rooter = {
+        plugin = p.vim-rooter;
+        type = "lua";
+        config = ''vim.g.rooter_silent_chdir = 1'';
+      };
+
       statuscol = {
         plugin = p.statuscol-nvim;
         type = "lua";
@@ -128,6 +134,7 @@
       nvim-spectre
       telescope
       statuscol
+      vim-rooter
       p.sideways-vim
     ];
 
