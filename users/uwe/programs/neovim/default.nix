@@ -82,6 +82,16 @@
         p.nvim-web-devicons
       ];
 
+      nvim-spectre = [
+        {
+          plugin = p.nvim-spectre;
+          type = "lua";
+          config = builtins.readFile ./plugins/nvim-spectre.lua;
+        }
+        p.plenary-nvim
+        p.nvim-web-devicons
+      ];
+
       telescope = [
         {
           plugin = p.telescope-nvim;
@@ -115,13 +125,15 @@
       nvim-tree
       nvim-ufo
       nvim-surround
+      nvim-spectre
       telescope
       statuscol
     ];
 
     extraPackages = [
-      zoxide
-      fzf
+      zoxide  # telescope
+      fzf     # telescope
+      ripgrep # nvim-spectre
     ];
 
     extraLuaConfig = builtins.readFile ./init.lua;
