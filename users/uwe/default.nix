@@ -21,6 +21,7 @@
     dogdns
     du-dust
     google-chrome
+    hyperfine
     jq
     killall
     kubectl
