@@ -1,4 +1,15 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
+let
+  fromGitHub = rev: ref: repo: pkgs.vimUtils.buildVimPlugin {
+    pname = "${lib.strings.sanitizeDerivationName repo}";
+    version = ref;
+    src = builtins.fetchGit {
+      url = "https://github.com/${repo}.git";
+      ref = ref;
+      rev = rev;
+    };
+  };
+in
 {
 
   programs.neovim = with pkgs; {
@@ -79,6 +90,8 @@
         p.nvim-web-devicons
       ];
 
+      linediff = (fromGitHub "245d16328c47a132574e0fa4298d24a0f78b20b0" "main" "AndrewRadev/linediff.vim");
+
       nvim-tree = [
         {
           plugin = p.nvim-tree-lua;
@@ -126,6 +139,7 @@
       treesitter
       gitsigns
       lualine
+      linediff
       indent-blankline
       noice
       nvim-tree
