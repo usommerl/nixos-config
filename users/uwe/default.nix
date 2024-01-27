@@ -14,6 +14,7 @@
   };
 
   home.packages = with pkgs; [
+    (nerdfonts.override { fonts = [ "JetBrainsMono" "IBMPlexMono" ]; })
     bat
     btop
     certigo
@@ -29,7 +30,6 @@
     libreoffice
     lm_sensors
     mtr
-    (nerdfonts.override { fonts = [ "JetBrainsMono" "IBMPlexMono" ]; })
     ripgrep
     ugrep
     usbutils
