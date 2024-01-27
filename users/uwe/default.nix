@@ -30,6 +30,7 @@
     libreoffice
     lm_sensors
     mtr
+    numbat
     ripgrep
     ugrep
     usbutils
