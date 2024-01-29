@@ -37,7 +37,13 @@ in
       ];
 
       treesitter = {
-        plugin = p.nvim-treesitter.withAllGrammars;
+        plugin = p.nvim-treesitter.withPlugins (l:
+          [
+           l.nix
+           l.lua
+           l.scala
+          ]
+        );
         type = "lua";
         config = builtins.readFile ./plugins/treesitter.lua;
       };
