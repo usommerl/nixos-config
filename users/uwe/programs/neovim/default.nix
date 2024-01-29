@@ -39,9 +39,17 @@ in
       treesitter = {
         plugin = p.nvim-treesitter.withPlugins (l:
           [
-           l.nix
+           l.bash
            l.lua
+           l.json
+           l.markdown
+           l.nix
+           l.python
+           l.rust
            l.scala
+           l.scss
+           l.typescript
+           l.yaml
           ]
         );
         type = "lua";
