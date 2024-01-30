@@ -62,6 +62,15 @@ in
         config = builtins.readFile ./plugins/indent-blankline.lua;
       };
 
+      bufferline = [
+        {
+          plugin = p.bufferline-nvim;
+          type = "lua";
+          config = builtins.readFile ./plugins/bufferline.lua;
+        }
+        p.nvim-web-devicons
+      ];
+
       nvim-ufo = [
         {
           plugin = p.nvim-ufo;
@@ -150,6 +159,7 @@ in
 
     in lib.lists.flatten [
       colorschemes
+      bufferline
       treesitter
       gitsigns
       lualine
