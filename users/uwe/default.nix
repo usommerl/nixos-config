@@ -2,8 +2,8 @@
 
 {
 
-  imports = [ 
-    hyprland.homeManagerModules.default 
+  imports = [
+    hyprland.homeManagerModules.default
     ../../modules/user-home.nix
     ./programs
   ];
@@ -42,7 +42,7 @@
 
   _module.args.mainFontName = "BlexMono Nerd Font";
 
-  fonts.fontconfig.enable = true; 
+  fonts.fontconfig.enable = true;
   programs.home-manager.enable = true;
   programs.bash.enable = true;
 
