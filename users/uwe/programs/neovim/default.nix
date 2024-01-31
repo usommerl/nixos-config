@@ -86,6 +86,12 @@ in
         config = ''require("nvim-surround").setup()'';
       };
 
+      comment = {
+        plugin = p.comment-nvim;
+        type = "lua";
+        config = ''require("Comment").setup()'';
+      };
+
       vim-rooter = {
         plugin = p.vim-rooter;
         type = "lua";
@@ -159,6 +165,7 @@ in
 
     in lib.lists.flatten [
       colorschemes
+      comment
       bufferline
       treesitter
       gitsigns
