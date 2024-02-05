@@ -186,7 +186,7 @@
 
     fileviewer *.torrent transmission-show %f
  
-    filetype *.zip,*.jar,*.war,*.ear,*.oxt
+    filetype *.zip,*.jar,*.war,*.ear,*.oxt,*.apk
            \ {Mount with mount-zip}
            \ FUSE_MOUNT|mount-zip -o allow_other %SOURCE_FILE %DESTINATION_DIR,
            \ {View contents}
