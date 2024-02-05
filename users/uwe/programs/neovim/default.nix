@@ -1,6 +1,6 @@
 { pkgs, lib, ... }:
 let
-  fromGitHub = rev: ref: repo: pkgs.vimUtils.buildVimPlugin {
+  pluginFromGitHub = rev: ref: repo: pkgs.vimUtils.buildVimPlugin {
     pname = "${lib.strings.sanitizeDerivationName repo}";
     version = ref;
     src = builtins.fetchGit {
@@ -11,7 +11,7 @@ let
   };
 in
 {
-  _module.args.fromGitHub = fromGitHub;
+  _module.args.pluginFromGitHub = pluginFromGitHub;
 
   programs.neovim = with pkgs; {
     enable = true;
