@@ -38,6 +38,7 @@
     usql
     viddy
     wl-clipboard
+    google-drive-ocamlfuse
   ];
 
   _module.args.mainFontName = "BlexMono Nerd Font";
