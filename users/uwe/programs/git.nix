@@ -16,18 +16,18 @@
       enable = true;
       options = {
         navigate = true;
-	line-numbers = true;
-	diff-highlight = true;
-	hunk-header-style = "hidden";
-	file-style = "blue";
-	file-decoration-style = "omit";
-	line-numbers-left-format = "{nm:^4}⋮ ";
-	line-numbers-right-format = "{np:^4}│ ";
-	line-numbers-left-style = "#777777";
-	line-numbers-right-style = "#777777";
-	line-numbers-zero-style = "#777777";
-	line-numbers-minus-style = "#BB0000";
-	line-numbers-plus-style = "#009900";
+        line-numbers = true;
+        diff-highlight = true;
+        hunk-header-style = "hidden";
+        file-style = "blue";
+        file-decoration-style = "omit";
+        line-numbers-left-format = "{nm:^4}⋮ ";
+        line-numbers-right-format = "{np:^4}│ ";
+        line-numbers-left-style = "#777777";
+        line-numbers-right-style = "#777777";
+        line-numbers-zero-style = "#777777";
+        line-numbers-minus-style = "#BB0000";
+        line-numbers-plus-style = "#009900";
       };
     };
 
@@ -55,29 +55,29 @@
 
       core = {
         editor = "nvim";
-	excludesfile = "${config.xdg.configHome}/git/gitignore";
+        excludesfile = "${config.xdg.configHome}/git/gitignore";
       };
 
       init = {
         defaultBranch = "main";
-	templatedir = "${config.xdg.configHome}/git/templates";
+        templatedir = "${config.xdg.configHome}/git/templates";
       };
 
       merge = {
         tool = "nvim";
-	ff = false;
-	conflictstyle = "diff3";
+        ff = false;
+        conflictstyle = "diff3";
       };
 
       push = {
         default = "simple";
-	followTags = true;
-	recourseSubmodules = "check";
+        followTags = true;
+        recourseSubmodules = "check";
       };
 
       rebase = {
         autoStash = true;
-	autoSquash = true;
+        autoSquash = true;
       };
 
     };

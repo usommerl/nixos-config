@@ -22,65 +22,65 @@
       env = XCURSOR_SIZE,24
 
       input {
-          kb_layout = de
-          kb_variant = nodeadkeys
-          kb_model =
-          kb_options =
-          kb_rules =
+        kb_layout = de
+        kb_variant = nodeadkeys
+        kb_model =
+        kb_options =
+        kb_rules =
 
-  	  repeat_delay = 300
-    	  repeat_rate = 50
+        repeat_delay = 300
+        repeat_rate = 50
       }
 
       general {
-          gaps_in = 1
-          gaps_out = 2
-          border_size = 1
-          col.active_border = rgba(ffcb6bee)
-          col.inactive_border = rgba(00000000)
+        gaps_in = 1
+        gaps_out = 2
+        border_size = 1
+        col.active_border = rgba(ffcb6bee)
+        col.inactive_border = rgba(00000000)
 
-          layout = dwindle
-          allow_tearing = false
+        layout = dwindle
+        allow_tearing = false
       }
 
       decoration {
-          rounding = 0
+        rounding = 0
 
-          blur {
-              enabled = true
-              size = 3
-              passes = 1
+        blur {
+          enabled = true
+          size = 3
+          passes = 1
 
-              vibrancy = 0.1696
-          }
+          vibrancy = 0.1696
+        }
 
-          drop_shadow = true
-          shadow_range = 4
-          shadow_render_power = 3
-          col.shadow = rgba(1a1a1aee)
+        drop_shadow = true
+        shadow_range = 4
+        shadow_render_power = 3
+        col.shadow = rgba(1a1a1aee)
       }
 
       animations {
-          enabled = true
+        enabled = true
 
-          bezier = myBezier, 0.05, 0.9, 0.1, 1.05
+        bezier = myBezier, 0.05, 0.9, 0.1, 1.05
 
-          animation = windows, 1, 3, myBezier
-          animation = windowsOut, 1, 3, default, popin 80%
-          animation = border, 1, 5, default
-          animation = borderangle, 1, 3, default
-          animation = fade, 1, 3, default
-          animation = workspaces, 1, 1, default
+        animation = windows, 1, 3, myBezier
+        animation = windowsOut, 1, 3, default, popin 80%
+        animation = border, 1, 5, default
+        animation = borderangle, 1, 3, default
+        animation = fade, 1, 3, default
+        animation = workspaces, 1, 1, default
       }
 
       dwindle {
-          preserve_split = true # you probably want this
-	  no_gaps_when_only = 1
+        preserve_split = true # you probably want this
+        no_gaps_when_only = 1
       }
 
       misc {
-          force_default_wallpaper = 0
-          disable_hyprland_logo = true
+        force_default_wallpaper = 0
+        disable_hyprland_logo = true
       }
 
       windowrulev2 = nomaximizerequest, class:.* # You'll probably like this.

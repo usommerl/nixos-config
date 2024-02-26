@@ -18,7 +18,7 @@
 
       #input {
         box-shadow: none;
-	border-radius: 0px;
+        border-radius: 0px;
       }
 
       #input > image.right {

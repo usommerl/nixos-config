@@ -61,7 +61,7 @@
     command! reload :write | restart
     command! qa :q
     command! zoxide :set noquickview | execute 'cd' fnameescape(system('zoxide query -l | fzf --height 20 2>/dev/tty || echo "%d"')) '%IU' | norm :redraw<cr>
-    
+
     " Keys
     nnoremap s :shell<cr>
     nnoremap T :!alacritty --working-directory %d 2> /dev/null &<cr>
@@ -87,10 +87,10 @@
     nnoremap ,d :set viewcolumns=-{name}.,10{perms},12{uname},-7{gname},10{size}.,20{mtime}<cr>
     nnoremap ,D :diff<cr>
     nnoremap <silent>Z :zoxide<cr>
-    
+
     " Autocommands
     autocmd DirEnter * !zoxide add %d %i
-    
+
     " File Associations
     filextype *.doc,*.docx,*.xls,*.xlsx,*.ppt,*.pptx,*.ods,*.ots,*.odt,*.ott,*.odp,*.otp,*.odm libreoffice %f &
     filextype *.pdf zathura %c %i &, apvlv %c, xpdf %c
@@ -99,7 +99,7 @@
             \ zathura %f,
             \ {View in gv}
             \ gv %c %i &,
-    
+
     filextype *.desktop
             \ open-desktop-file %f > /dev/null 2>&1 &
 
@@ -145,7 +145,7 @@
         \ vifmimg pdf %px %py %pw %ph %c
         \ %pc
         \ vifmimg clear
- 
+
     fileviewer *.djvu
         \ vifmimg djvu %px %py %pw %ph %c
         \ %pc
@@ -160,12 +160,12 @@
         \ vifmimg video %px %py %pw %ph %c
         \ %pc
         \ vifmimg clear
- 
+
     fileviewer <image/*>
         \ vifmimg draw %px %py %pw %ph %c
         \ %pc
         \ vifmimg clear
- 
+
     fileviewer <audio/*>
         \ vifmimg audio %px %py %pw %ph %c
         \ %pc
@@ -185,7 +185,7 @@
            \ !!gpg --verify %c,
 
     fileviewer *.torrent transmission-show %f
- 
+
     filetype *.zip,*.jar,*.war,*.ear,*.oxt,*.apk
            \ {Mount with mount-zip}
            \ FUSE_MOUNT|mount-zip -o allow_other %SOURCE_FILE %DESTINATION_DIR,

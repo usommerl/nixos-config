@@ -12,30 +12,30 @@
         modules-left = [
           "battery"
           "network"
-	];
+        ];
         modules-center = [
           "hyprland/workspaces"
-	];
+        ];
         modules-right = [
-	  "custom/clock"
+          "custom/clock"
         ];
 
         battery = {
-          interval = 10;   
+          interval = 10;
           states = {
             good = 80;
             warning = 50;
             critical = 9;
           };
           format = "{icon} {capacity}%";
-	  format-charging = "󱐥 {capacity}%";
+          format-charging = "󱐥 {capacity}%";
           format-plugged = "󱐥 {capacity}%";
           format-full = "  {capacity}%";
           format-icons = [ "" "" "" "" "" ];
         };
 
         network = {
-	  interval = 10;
+          interval = 10;
           format = "{ifname}";
           format-wifi = " {signalStrength}%";
           format-ethernet = "󰲝 {ipaddr}/{cidr}";
@@ -43,11 +43,11 @@
           on-click = "alacritty -e nmtui";
         };
 
-	"custom/clock" = {
+        "custom/clock" = {
            exec = "date +'%Y-%m-%dT%H:%M:%S%z'";
-           interval = 1;   
+           interval = 1;
            tooltip = false ;
-    	};
+        };
       };
     };
 
@@ -97,16 +97,16 @@
          tooltip {
            background: #222;
          }
-	 #custom-clock {
-	   padding-right: 6px;
-	   padding-left: .5em;
-	   margin-left: 2px;
+         #custom-clock {
+           padding-right: 6px;
+           padding-left: .5em;
+           margin-left: 2px;
          }
-	 #network, #battery {
-	   padding-right: .5em;
-	   padding-left: .5em;
-	   margin-right: 2px;
-	   margin-left: 2px;
+         #network, #battery {
+           padding-right: .5em;
+           padding-left: .5em;
+           margin-right: 2px;
+           margin-left: 2px;
          }
          #workspaces button, #network, #custom-clock, #battery {
            color: rgba(255, 255, 255, 0.7);
