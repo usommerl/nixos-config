@@ -65,6 +65,7 @@
     openFirewall = true;
   };
 
+  security.pam.services.swaylock = {};
   security.sudo.extraConfig = ''
     Defaults        timestamp_timeout=15
   '';

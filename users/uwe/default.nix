@@ -1,9 +1,10 @@
-{ hyprland, pkgs, ... }:
+{ pkgs, hyprland, hypridle, ... }:
 
 {
 
   imports = [
     hyprland.homeManagerModules.default
+    hypridle.homeManagerModules.default
     ../../modules/user-home.nix
     ./programs
   ];
@@ -49,4 +50,3 @@
 
   home.stateVersion = "23.05";
 }
-

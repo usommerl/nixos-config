@@ -11,6 +11,7 @@
     ./neovim
     ./ssh.nix
     ./starship.nix
+    ./swaylock.nix
     ./vifm.nix
     ./zathura.nix
     ./zoxide.nix
