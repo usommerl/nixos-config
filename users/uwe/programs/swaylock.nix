@@ -1,4 +1,7 @@
 { mainFontName, pkgs, config, ... }:
+let
+  lockCmd = "${pkgs.swaylock}/bin/swaylock --daemonize --config ${config.xdg.configHome}/swaylock/config";
+in
 {
   programs.swaylock = {
     enable = true;
@@ -10,16 +13,20 @@
     };
   };
 
-  services.hypridle = let
-   lock = "${pkgs.swaylock}/bin/swaylock --daemonize --config ${config.xdg.configHome}/swaylock/config";
-  in {
+  services.hypridle = {
     enable = true;
-    beforeSleepCmd = "${lock}";
+    beforeSleepCmd = "${lockCmd}";
     listeners = [
       {
         timeout = 600;
-        onTimeout = "${lock}";
+        onTimeout = "${lockCmd}";
       }
     ];
+  };
+
+  wayland.windowManager.hyprland = {
+    extraConfig = ''
+      bind = SUPER, Pause, exec, ${lockCmd}
+    '';
   };
 }
