@@ -5,7 +5,7 @@ let
 
   white = "FFFFFFFF";
   black = "000000FF";
-  darkGrey = "888888FF";
+  grey = "666666FF";
   yellow = "FFA000FF";
 in
 {
@@ -19,13 +19,13 @@ in
       ring-caps-lock-color = white;
       ring-ver-color = white;
       ring-wrong-color = white;
-      inside-clear-color = black;
-      inside-ver-color = darkGrey;
+      inside-clear-color = grey;
+      inside-ver-color = grey;
       inside-wrong-color = yellow;
       text-caps-lock-color = yellow;
       text-clear-color = white;
       text-ver-color = white;
-      bs-hl-color = darkGrey;
+      bs-hl-color = grey;
       key-hl-color = yellow;
       font = mainFontName;
       font-size = 20;
@@ -33,16 +33,19 @@ in
       indicator-thickness = 16;
       ignore-empty-password = true;
       text-ver = "";
+      text-clear = "";
+      text-wrong = "";
+      text-caps-lock = "CAPS LOCK";
     };
   };
 
   services.hypridle = {
     enable = true;
-    beforeSleepCmd = "${lockCmd}";
+    beforeSleepCmd = lockCmd;
     listeners = [
       {
         timeout = 600;
-        onTimeout = "${lockCmd}";
+        onTimeout = lockCmd;
       }
     ];
   };
