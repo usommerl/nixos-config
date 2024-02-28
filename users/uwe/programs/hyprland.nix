@@ -12,7 +12,8 @@
       # See https://wiki.hyprland.org/Configuring/Monitors/
       monitor=,preferred,auto,auto
 
-      # exec-once = waybar 
+      exec-once = waybar
+      exec-once = sleep 2; pkill -SIGUSR1 '.*waybar.*'
 
       # Set programs that you use
       $terminal = alacritty
