@@ -10,10 +10,8 @@
   home.packages = [(
     let
       name = "hyprcwd";
-      buildInputs = with pkgs; [ bash jq procps coreutils-full ];
+      buildInputs = with pkgs; [ jq procps coreutils-full ];
       script = pkgs.writeShellScriptBin name ''
-        #!/usr/bin/env bash
-
         pid=$(hyprctl activewindow -j | jq '.pid')
         ppid=$(pgrep --newest --parent "$pid")
         dir=$(readlink /proc/"$ppid"/cwd || echo "$HOME")
