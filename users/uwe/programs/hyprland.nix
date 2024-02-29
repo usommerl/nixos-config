@@ -1,9 +1,31 @@
+{ pkgs, ... }:
 {
 
   imports = [
     ./waybar.nix
     ./wofi.nix
   ];
+
+  # hyprcwd script shamelessly stolen from https://github.com/vilari-mickopf/hyprcwd
+  home.packages = [(
+    let
+      name = "hyprcwd";
+      buildInputs = with pkgs; [ bash jq procps coreutils-full ];
+      script = pkgs.writeShellScriptBin name ''
+        #!/bin/bash
+
+        pid=$(hyprctl activewindow -j | jq '.pid')
+        ppid=$(pgrep --newest --parent "$pid")
+        dir=$(readlink /proc/"$ppid"/cwd || echo "$HOME")
+        [ -d "$dir" ] && echo "$dir" || echo "$HOME"
+      '';
+    in pkgs.symlinkJoin {
+      name = name;
+      paths = [ script ] ++ buildInputs;
+      buildInputs = [ pkgs.makeWrapper ];
+      postBuild = "wrapProgram $out/bin/${name} --prefix PATH : $out/bin";
+    }
+  )];
 
   wayland.windowManager.hyprland = {
     enable = true;
@@ -16,7 +38,6 @@
       exec-once = sleep 2; pkill -SIGUSR1 '.*waybar.*'
 
       # Set programs that you use
-      $terminal = alacritty
       $fileManager = alacritty -e vifm
       $menu = wofi --hide-scroll --insensitive --gtk-dark --prompt "" --show run
       # Some default env vars.
@@ -89,7 +110,8 @@
       $mainMod = SUPER
 
       # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
-      bind = $mainMod, RETURN, exec, $terminal
+      bind = $mainMod, RETURN, exec, alacritty --working-directory "$(hyprcwd)"
+      bind = $mainMod SHIFT, RETURN, exec, alacritty
       bind = $mainMod SHIFT, C, killactive,
       bind = $mainMod, M, fullscreen, 0
       bind = $mainMod, E, exec, $fileManager
@@ -145,7 +167,7 @@
 
       # "Hide" client by moving it to the special workspace
       bind = $mainMod, n, movetoworkspacesilent, special
-      bind = $mainMod CTRL, n, togglespecialworkspace 
+      bind = $mainMod CTRL, n, togglespecialworkspace
     '';
   };
 }
