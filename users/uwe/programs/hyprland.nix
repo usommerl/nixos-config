@@ -12,7 +12,7 @@
       name = "hyprcwd";
       buildInputs = with pkgs; [ bash jq procps coreutils-full ];
       script = pkgs.writeShellScriptBin name ''
-        #!/bin/bash
+        #!/usr/bin/env bash
 
         pid=$(hyprctl activewindow -j | jq '.pid')
         ppid=$(pgrep --newest --parent "$pid")
