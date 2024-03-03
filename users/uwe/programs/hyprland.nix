@@ -6,25 +6,6 @@
     ./wofi.nix
   ];
 
-  # hyprcwd script shamelessly stolen from https://github.com/vilari-mickopf/hyprcwd
-  home.packages = [(
-    let
-      name = "hyprcwd";
-      buildInputs = with pkgs; [ jq procps coreutils-full ];
-      script = pkgs.writeShellScriptBin name ''
-        pid=$(hyprctl activewindow -j | jq '.pid')
-        ppid=$(pgrep --newest --parent "$pid")
-        dir=$(readlink /proc/"$ppid"/cwd || echo "$HOME")
-        [ -d "$dir" ] && echo "$dir" || echo "$HOME"
-      '';
-    in pkgs.symlinkJoin {
-      name = name;
-      paths = [ script ] ++ buildInputs;
-      buildInputs = [ pkgs.makeWrapper ];
-      postBuild = "wrapProgram $out/bin/${name} --prefix PATH : $out/bin";
-    }
-  )];
-
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.enable = true;
@@ -168,4 +149,23 @@
       bind = $mainMod CTRL, n, togglespecialworkspace
     '';
   };
+
+  # hyprcwd script shamelessly stolen from https://github.com/vilari-mickopf/hyprcwd
+  home.packages = [(
+    let
+      name = "hyprcwd";
+      buildInputs = with pkgs; [ jq procps coreutils-full ];
+      script = pkgs.writeShellScriptBin name ''
+        pid=$(hyprctl activewindow -j | jq '.pid')
+        ppid=$(pgrep --newest --parent "$pid")
+        dir=$(readlink /proc/"$ppid"/cwd || echo "$HOME")
+        [ -d "$dir" ] && echo "$dir" || echo "$HOME"
+      '';
+    in pkgs.symlinkJoin {
+      name = name;
+      paths = [ script ] ++ buildInputs;
+      buildInputs = [ pkgs.makeWrapper ];
+      postBuild = "wrapProgram $out/bin/${name} --prefix PATH : $out/bin";
+    }
+  )];
 }
