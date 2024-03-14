@@ -23,7 +23,6 @@
     dogdns
     du-dust
     fio
-    google-chrome
     hyperfine
     jq
     killall

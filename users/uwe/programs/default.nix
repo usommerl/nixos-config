@@ -6,6 +6,7 @@
     ./feh.nix
     ./fish.nix
     ./git.nix
+    ./google-chrome.nix
     ./hyprland.nix
     ./keychain.nix
     ./neovim
