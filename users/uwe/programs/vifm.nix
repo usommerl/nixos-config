@@ -1,29 +1,5 @@
 { pkgs, config, ... }:
-
 {
-  home.packages = with pkgs; [
-    vifm
-    mount-zip
-    (
-      let
-        name = "open-desktop-file";
-        buildInputs = with pkgs; [ xdg-utils google-chrome gnugrep ];
-        script = pkgs.writeShellScriptBin name ''
-          if grep -q 'Type=Link' "$1"; then
-            google-chrome-stable "$(grep 'URL=' "$1" | cut -d '=' -f 2-)"
-          else
-            xdg-open $1
-          fi
-        '';
-      in pkgs.symlinkJoin {
-        name = name;
-        paths = [ script ] ++ buildInputs;
-        buildInputs = [ pkgs.makeWrapper ];
-        postBuild = "wrapProgram $out/bin/${name} --prefix PATH : $out/bin";
-      }
-    )
-  ];
-
   home.file."${config.xdg.configHome}/vifm/vifmrc".text = ''
     " Options
     set vicmd=nvim
@@ -270,4 +246,39 @@
     highlight ErrorMsg cterm=none ctermfg=red ctermbg=-1
     highlight Border cterm=none ctermfg=-1 ctermbg=-1
   '';
+
+  home.packages = with pkgs; [
+    alacritty
+    archivemount
+    curlftpfs
+    feh
+    fuseiso
+    fuse-7z-ng
+    inkscape
+    mount-zip
+    mpv
+    rar2fs
+    sshfs
+    vifm
+    zathura
+    zoxide
+    (
+      let
+        name = "open-desktop-file";
+        buildInputs = with pkgs; [ xdg-utils google-chrome gnugrep ];
+        script = pkgs.writeShellScriptBin name ''
+          if grep -q 'Type=Link' "$1"; then
+            google-chrome-stable "$(grep 'URL=' "$1" | cut -d '=' -f 2-)"
+          else
+            xdg-open $1
+          fi
+        '';
+      in pkgs.symlinkJoin {
+        name = name;
+        paths = [ script ] ++ buildInputs;
+        buildInputs = [ pkgs.makeWrapper ];
+        postBuild = "wrapProgram $out/bin/${name} --prefix PATH : $out/bin";
+      }
+    )
+  ];
 }
