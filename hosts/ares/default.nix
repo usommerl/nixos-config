@@ -94,7 +94,7 @@
     shell = pkgs.fish;
   };
 
-  fileSystems."/mnt/${mainUser}/data" = {
+  fileSystems."/mnt/${mainUser}/harpocrates" = {
     device = "//harpocrates.tail15a8b.ts.net/homes/${mainUser}";
     fsType = "cifs";
     options =
