@@ -84,8 +84,6 @@
         disable_hyprland_logo = true
       }
 
-      windowrulev2 = nomaximizerequest, class:.* # You'll probably like this.
-
       $mainMod = SUPER
 
       # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
