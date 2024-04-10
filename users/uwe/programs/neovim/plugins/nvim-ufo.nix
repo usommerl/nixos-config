@@ -48,7 +48,7 @@
         require('ufo').setup({
           open_fold_hl_timeout = 0,
           fold_virt_text_handler = handler,
-          close_fold_kinds = { 'imports' },
+          close_fold_kinds_for_ft = { scala = 'imports' },
         })
       '';
     }
