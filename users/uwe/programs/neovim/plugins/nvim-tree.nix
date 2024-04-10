@@ -83,6 +83,9 @@
           view = {
             width = 60,
           },
+          renderer = {
+            group_empty = true,
+          },
           trash = {
             cmd = "rm -rf",
           },
