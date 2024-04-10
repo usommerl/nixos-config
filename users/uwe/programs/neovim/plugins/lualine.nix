@@ -5,6 +5,7 @@
   in
   [
     p.nvim-web-devicons
+    p.noice-nvim
     {
       plugin = p.lualine-nvim;
       type = "lua";
@@ -14,8 +15,20 @@
             component_separators = ""
           },
           sections = {
-            lualine_c = { "filename", "g:metals_status" },
-            lualine_x = { "encoding", { "fileformat", icons_enabled = false }, "filetype" },
+            lualine_c = {
+              "filename",
+              "g:metals_status",
+              {
+                require("noice").api.status.mode.get,
+                cond = require("noice").api.status.mode.has,
+                color = { fg = "WarningMsg" },
+              }
+            },
+            lualine_x = {
+              "encoding",
+              { "fileformat", icons_enabled = false },
+              "filetype"
+            },
           },
           extensions = { "nvim-tree" }
         }
