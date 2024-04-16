@@ -3,6 +3,7 @@
   home.file."${config.xdg.configHome}/vifm/vifmrc".text = ''
     " Options
     set vicmd=nvim
+    set title
     set trash
     set trashdir=$HOME/.local/vifm/trash
     set history=100
