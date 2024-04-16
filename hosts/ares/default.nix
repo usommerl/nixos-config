@@ -39,6 +39,7 @@
     git
     google-drive-ocamlfuse
     neovim
+    pulsemixer
     tailscale
   ];
 
@@ -52,31 +53,41 @@
     keyMap = "de";
   };
 
-  services.getty.helpLine = lib.mkForce "" ;
-  services.tailscale.enable = true;
-  services.resolved.enable = true;
-  services.openssh.enable = true;
-  services.openssh.settings.PermitRootLogin = "no";
-  services.printing.enable = true;
+  services = {
+    getty.helpLine = lib.mkForce "" ;
+    tailscale.enable = true;
+    resolved.enable = true;
+    openssh.enable = true;
+    openssh.settings.PermitRootLogin = "no";
+    printing.enable = true;
 
-  services.avahi = {
-    enable = true;
-    nssmdns4 = true;
-    openFirewall = true;
+    avahi = {
+      enable = true;
+      nssmdns4 = true;
+      openFirewall = true;
+    };
+
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+    };
   };
 
-  security.pam.services.swaylock = {};
-  security.sudo.extraConfig = ''
-    Defaults        timestamp_timeout=15
-  '';
+  security = {
+    rtkit.enable = true; # Recommended for pipewire
+    pam.services.swaylock = {};
+    sudo.extraConfig = ''
+      Defaults        timestamp_timeout=15
+    '';
+  };
 
   # See: https://github.com/NixOS/nixpkgs/issues/180175
   systemd.services.NetworkManager-wait-online.enable = lib.mkForce false;
   systemd.services.systemd-networkd-wait-online.enable = lib.mkForce false;
 
   time.timeZone = "Europe/Berlin";
-  sound.enable = true;
-  hardware.pulseaudio.enable = true;
 
   virtualisation.docker.enable = true;
   programs.fish.enable = true;
