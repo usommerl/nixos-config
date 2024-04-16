@@ -20,7 +20,7 @@
       $fileManager = alacritty -e vifm
       $menu = walker
       # Some default env vars.
-      env = XCURSOR_SIZE,24
+      # env = XCURSOR_SIZE,24
 
       input {
         kb_layout = de
