@@ -97,9 +97,11 @@
     };
 
     style = ''
+      @define-color highlight-bg-color #2f3142;
+
       * {
         font-family: "${mainFontName}";
-        color: #dcd7ba;
+        color: #c8d3f5;
         background: rgba(0, 0, 0, 0.0);
       }
 
@@ -107,7 +109,7 @@
       }
 
       #box {
-        background: #16161d;
+        background: #161723;
         padding: 5px;
         border-radius: 0;
       }
@@ -123,7 +125,7 @@
         box-shadow: none;
         border-bottom: none;
         border: none;
-        background: #1f1f28;
+        background: @highlight-bg-color;
         padding-left: 10px;
         padding-right: 10px;
         padding-top: 0px;
@@ -153,7 +155,7 @@
       }
 
       row:selected {
-        background: #1f1f28;
+        background: @highlight-bg-color;
       }
 
       .item {
