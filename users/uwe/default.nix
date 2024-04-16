@@ -1,10 +1,11 @@
-{ pkgs, hyprland, hypridle, ... }:
+{ pkgs, hyprland, hypridle, walker, ... }:
 
 {
 
   imports = [
     hyprland.homeManagerModules.default
     hypridle.homeManagerModules.default
+    walker.homeManagerModules.default
     ../../modules/user-home.nix
     ./programs
   ];

@@ -3,7 +3,7 @@
 
   imports = [
     ./waybar.nix
-    ./wofi.nix
+    ./walker.nix
   ];
 
   wayland.windowManager.hyprland = {
@@ -18,7 +18,7 @@
 
       # Set programs that you use
       $fileManager = alacritty -e vifm
-      $menu = wofi --hide-scroll --insensitive --gtk-dark --prompt "" --show run
+      $menu = walker
       # Some default env vars.
       env = XCURSOR_SIZE,24
 

@@ -7,8 +7,13 @@
     ];
 
   nix = {
-    settings.experimental-features = [ "nix-command" "flakes" ];
-    settings.auto-optimise-store = true;
+    settings = {
+      experimental-features = [ "nix-command" "flakes" ];
+      auto-optimise-store = true;
+
+      substituters = ["https://walker.cachix.org"];
+      trusted-public-keys = ["walker.cachix.org-1:fG8q+uAaMqhsMxWjwvk0IMb4mFPFLqHjuvfwQxE4oJM="];
+    };
 
     gc = {
       automatic = true;
