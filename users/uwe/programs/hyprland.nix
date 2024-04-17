@@ -15,7 +15,7 @@
 
       exec-once = swww init; swww clear 222436
       exec-once = waybar
-      exec-once = sleep 2; pkill -SIGUSR1 '.*waybar.*'; sleep 0.1; walker
+      exec-once = sleep 2; pkill -SIGUSR1 '.*waybar.*'; sleep 1; walker
 
       # Set programs that you use
       $fileManager = alacritty -e vifm

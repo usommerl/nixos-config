@@ -191,10 +191,6 @@
       .activation .search {
         opacity: 0.5;
       }
-
-      scrollbar, scrollbar button, scrollbar slider {
-        visibility: hidden;
-      }
     '';
   };
 }
