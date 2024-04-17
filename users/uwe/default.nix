@@ -24,6 +24,7 @@
     dogdns
     du-dust
     fio
+    google-drive-ocamlfuse
     htop
     hyperfine
     jq
@@ -35,12 +36,12 @@
     mtr
     numbat
     ripgrep
+    signal-desktop
     ugrep
     usbutils
     usql
     viddy
     wl-clipboard
-    google-drive-ocamlfuse
   ];
 
   _module.args.mainFontName = "BlexMono Nerd Font";
