@@ -24,6 +24,7 @@
     dogdns
     du-dust
     fio
+    htop
     hyperfine
     jq
     killall
