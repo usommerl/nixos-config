@@ -14,8 +14,6 @@
       monitor=,preferred,auto,auto
 
       exec-once = swww init; swww clear 222436
-      exec-once = waybar
-      exec-once = sleep 2; pkill -SIGUSR1 '.*waybar.*'
 
 
       # Set programs that you use
@@ -96,7 +94,6 @@
       bind = $mainMod, V, togglefloating,
       bind = $mainMod, P, pseudo, # dwindle
       bind = $mainMod, Space, togglesplit, # dwindle
-      bind = $mainMod, B, exec, pkill -SIGUSR1 '.*waybar.*' || waybar
       bind = $mainMod SHIFT, Pause, exec, systemctl suspend
       bind = $mainMod SHIFT CTRL, s, exec, poweroff
 

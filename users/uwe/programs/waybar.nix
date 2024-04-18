@@ -113,4 +113,10 @@
          }
       '';
   };
+
+  wayland.windowManager.hyprland.extraConfig = ''
+    exec-once = waybar
+    exec-once = sleep 2; pkill -SIGUSR1 '.*waybar.*'
+    bind = SUPER, B, exec, pkill -SIGUSR1 '.*waybar.*' || waybar
+  '';
 }
