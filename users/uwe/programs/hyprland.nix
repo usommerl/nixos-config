@@ -80,65 +80,63 @@
         disable_hyprland_logo = true
       }
 
-      $mainMod = SUPER
-
       # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
-      bind = $mainMod, RETURN, exec, alacritty --working-directory "$(hyprcwd)"
-      bind = $mainMod SHIFT, RETURN, exec, alacritty
-      bind = $mainMod SHIFT, C, killactive,
-      bind = $mainMod, M, fullscreen, 0
-      bind = $mainMod, E, exec, alacritty -e vifm
-      bind = $mainMod, V, togglefloating,
-      bind = $mainMod, P, pseudo, # dwindle
-      bind = $mainMod, Space, togglesplit, # dwindle
-      bind = $mainMod SHIFT, Pause, exec, systemctl suspend
-      bind = $mainMod SHIFT CTRL, s, exec, poweroff
+      bind = SUPER, RETURN, exec, alacritty --working-directory "$(hyprcwd)"
+      bind = SUPER SHIFT, RETURN, exec, alacritty
+      bind = SUPER SHIFT, C, killactive,
+      bind = SUPER, M, fullscreen, 0
+      bind = SUPER, E, exec, alacritty -e vifm
+      bind = SUPER, V, togglefloating,
+      bind = SUPER, P, pseudo, # dwindle
+      bind = SUPER, Space, togglesplit, # dwindle
+      bind = SUPER SHIFT, Pause, exec, systemctl suspend
+      bind = SUPER SHIFT CTRL, s, exec, poweroff
 
       # Move focus
-      binde = $mainMod, h, movefocus, l
-      binde = $mainMod, l, movefocus, r
-      binde = $mainMod, k, movefocus, u
-      binde = $mainMod, j, movefocus, d
+      binde = SUPER, h, movefocus, l
+      binde = SUPER, l, movefocus, r
+      binde = SUPER, k, movefocus, u
+      binde = SUPER, j, movefocus, d
 
       # Move window
-      binde = $mainMod SHIFT, h, movewindow, l
-      binde = $mainMod SHIFT, l, movewindow, r
-      binde = $mainMod SHIFT, k, movewindow, u
-      binde = $mainMod SHIFT, j, movewindow, d
+      binde = SUPER SHIFT, h, movewindow, l
+      binde = SUPER SHIFT, l, movewindow, r
+      binde = SUPER SHIFT, k, movewindow, u
+      binde = SUPER SHIFT, j, movewindow, d
 
       # Resize window
-      binde = $mainMod CTRL, h, resizeactive, -10 0
-      binde = $mainMod CTRL, l, resizeactive, 10 0
-      binde = $mainMod CTRL, k, resizeactive, 0 -10
-      binde = $mainMod CTRL, j, resizeactive, 0 10
+      binde = SUPER CTRL, h, resizeactive, -10 0
+      binde = SUPER CTRL, l, resizeactive, 10 0
+      binde = SUPER CTRL, k, resizeactive, 0 -10
+      binde = SUPER CTRL, j, resizeactive, 0 10
 
-      # Switch workspaces with mainMod + [0-9]
-      bind = $mainMod, 1, workspace, 1
-      bind = $mainMod, 2, workspace, 2
-      bind = $mainMod, 3, workspace, 3
-      bind = $mainMod, 4, workspace, 4
-      bind = $mainMod, 5, workspace, 5
-      bind = $mainMod, 6, workspace, 6
-      bind = $mainMod, 7, workspace, 7
-      bind = $mainMod, 8, workspace, 8
-      bind = $mainMod, 9, workspace, 9
-      bind = $mainMod, 0, workspace, 10
+      # Switch workspaces with SUPER + [0-9]
+      bind = SUPER, 1, workspace, 1
+      bind = SUPER, 2, workspace, 2
+      bind = SUPER, 3, workspace, 3
+      bind = SUPER, 4, workspace, 4
+      bind = SUPER, 5, workspace, 5
+      bind = SUPER, 6, workspace, 6
+      bind = SUPER, 7, workspace, 7
+      bind = SUPER, 8, workspace, 8
+      bind = SUPER, 9, workspace, 9
+      bind = SUPER, 0, workspace, 10
 
-      # Move active window to a workspace with mainMod + SHIFT + [0-9]
-      bind = $mainMod SHIFT, 1, movetoworkspacesilent, 1
-      bind = $mainMod SHIFT, 2, movetoworkspacesilent, 2
-      bind = $mainMod SHIFT, 3, movetoworkspacesilent, 3
-      bind = $mainMod SHIFT, 4, movetoworkspacesilent, 4
-      bind = $mainMod SHIFT, 5, movetoworkspacesilent, 5
-      bind = $mainMod SHIFT, 6, movetoworkspacesilent, 6
-      bind = $mainMod SHIFT, 7, movetoworkspacesilent, 7
-      bind = $mainMod SHIFT, 8, movetoworkspacesilent, 8
-      bind = $mainMod SHIFT, 9, movetoworkspacesilent, 9
-      bind = $mainMod SHIFT, 0, movetoworkspacesilent, 10
+      # Move active window to a workspace with SUPER + SHIFT + [0-9]
+      bind = SUPER SHIFT, 1, movetoworkspacesilent, 1
+      bind = SUPER SHIFT, 2, movetoworkspacesilent, 2
+      bind = SUPER SHIFT, 3, movetoworkspacesilent, 3
+      bind = SUPER SHIFT, 4, movetoworkspacesilent, 4
+      bind = SUPER SHIFT, 5, movetoworkspacesilent, 5
+      bind = SUPER SHIFT, 6, movetoworkspacesilent, 6
+      bind = SUPER SHIFT, 7, movetoworkspacesilent, 7
+      bind = SUPER SHIFT, 8, movetoworkspacesilent, 8
+      bind = SUPER SHIFT, 9, movetoworkspacesilent, 9
+      bind = SUPER SHIFT, 0, movetoworkspacesilent, 10
 
       # "Hide" client by moving it to the special workspace
-      bind = $mainMod, n, movetoworkspacesilent, special
-      bind = $mainMod CTRL, n, togglespecialworkspace
+      bind = SUPER, n, movetoworkspacesilent, special
+      bind = SUPER CTRL, n, togglespecialworkspace
     '';
   };
 
