@@ -193,4 +193,9 @@
       }
     '';
   };
+
+  wayland.windowManager.hyprland.extraConfig = ''
+    exec-once = walker --gapplication-service
+    bind = SUPER, R, exec, walker
+  '';
 }

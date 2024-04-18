@@ -16,12 +16,10 @@
       exec-once = swww init; swww clear 222436
       exec-once = waybar
       exec-once = sleep 2; pkill -SIGUSR1 '.*waybar.*'
-      exec-once = walker --gapplication-service
 
 
       # Set programs that you use
       $fileManager = alacritty -e vifm
-      $menu = walker
       # Some default env vars.
       # env = XCURSOR_SIZE,24
 
@@ -96,7 +94,6 @@
       bind = $mainMod, M, fullscreen, 0
       bind = $mainMod, E, exec, $fileManager
       bind = $mainMod, V, togglefloating,
-      bind = $mainMod, R, exec, $menu
       bind = $mainMod, P, pseudo, # dwindle
       bind = $mainMod, Space, togglesplit, # dwindle
       bind = $mainMod, B, exec, pkill -SIGUSR1 '.*waybar.*' || waybar
