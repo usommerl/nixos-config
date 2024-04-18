@@ -15,9 +15,6 @@
 
       exec-once = swww init; swww clear 222436
 
-
-      # Set programs that you use
-      $fileManager = alacritty -e vifm
       # Some default env vars.
       # env = XCURSOR_SIZE,24
 
@@ -90,7 +87,7 @@
       bind = $mainMod SHIFT, RETURN, exec, alacritty
       bind = $mainMod SHIFT, C, killactive,
       bind = $mainMod, M, fullscreen, 0
-      bind = $mainMod, E, exec, $fileManager
+      bind = $mainMod, E, exec, alacritty -e vifm
       bind = $mainMod, V, togglefloating,
       bind = $mainMod, P, pseudo, # dwindle
       bind = $mainMod, Space, togglesplit, # dwindle
