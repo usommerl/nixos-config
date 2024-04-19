@@ -110,6 +110,7 @@
     shell = pkgs.fish;
   };
 
+  # TODO: Credentials file?
   fileSystems."/mnt/${mainUser}/harpocrates" = {
     device = "//harpocrates.tail15a8b.ts.net/homes/${mainUser}";
     fsType = "cifs";

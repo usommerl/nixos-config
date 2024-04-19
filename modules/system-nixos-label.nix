@@ -11,7 +11,7 @@ let
 
 in {
 
-  options.system.useVcsInfoForLabel = 
+  options.system.useVcsInfoForLabel =
     mkEnableOption "Use VCS information to create NixOS boot label";
 
   config = mkIf config.system.useVcsInfoForLabel {

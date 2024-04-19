@@ -4,7 +4,7 @@ with lib; {
     user = {
        username = mkOption {
          type = types.str;
-	 default = (strings.toLower (builtins.head (strings.splitString " " config.user.fullname)));
+         default = (strings.toLower (builtins.head (strings.splitString " " config.user.fullname)));
        };
 
        fullname = mkOption {
