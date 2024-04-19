@@ -1,10 +1,14 @@
 { pkgs, config, lib, hyprland, hostName, mainUser, ... }:
+with lib;
+let
+  mainUserMountConfig = ../../users/${mainUser}/mounts;
+in
 {
   imports =
     [
       ../../modules/system-nixos-label.nix
       ./hardware-configuration.nix
-    ];
+    ] ++ optional (builtins.pathExists mainUserMountConfig) mainUserMountConfig;
 
   nix = {
     settings = {
@@ -108,22 +112,6 @@
     extraGroups = [ "wheel" "networkmanager" "docker" ];
     uid = 1000;
     shell = pkgs.fish;
-  };
-
-  # TODO: Credentials file?
-  fileSystems."/mnt/${mainUser}/harpocrates" = {
-    device = "//harpocrates.tail15a8b.ts.net/homes/${mainUser}";
-    fsType = "cifs";
-    options =
-      let
-        uid = toString config.users.users.${mainUser}.uid;
-      in
-      [
-        "noauto,x-systemd.automount"
-        "x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s"
-        "uid=${uid},gid=100,dir_mode=0700,file_mode=0600,nobrl"
-        "credentials=/home/${mainUser}/.private/harpocrates"
-      ];
   };
 
   system.useVcsInfoForLabel = true;
