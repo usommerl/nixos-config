@@ -37,6 +37,7 @@
     numbat
     ripgrep
     signal-desktop
+    ttyper
     ugrep
     usbutils
     usql
