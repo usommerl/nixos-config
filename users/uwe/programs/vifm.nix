@@ -126,7 +126,7 @@
     fileviewer *.[1-8] gtbl %c | groff -Tascii -man | col -b
     filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm,*.tif
             \ {View in feh}
-            \ feh -Tdefault --scale-down %c %d &>/dev/null &,
+            \ feh -Tdefault --scale-down --start-at %c %d &>/dev/null &,
             \ {View in sxiv}
             \ sxiv -s f -b %f &,
             \ {View in gpicview}
