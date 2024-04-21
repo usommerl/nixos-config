@@ -90,6 +90,11 @@
           prefix = "";
         }
         {
+          name = "commands";
+          prefix = "";
+          switcher_exclusive = true;
+        }
+        {
           name = "switcher";
           prefix = "/";
         }
