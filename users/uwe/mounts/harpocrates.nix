@@ -1,4 +1,7 @@
-{ user, config, ... }:
+{ config, ... }:
+let
+  user = "uwe";
+in
 {
   # TODO: Credentials file?
   fileSystems."/mnt/${user}/harpocrates" = {
