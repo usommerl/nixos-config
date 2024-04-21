@@ -10,6 +10,7 @@
     ./hyprland.nix
     ./keychain.nix
     ./neovim
+    ./pulsemixer.nix
     ./ssh.nix
     ./starship.nix
     ./swaylock.nix

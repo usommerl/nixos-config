@@ -48,7 +48,6 @@ in
     git
     google-drive-ocamlfuse
     neovim
-    pulsemixer
     tailscale
   ];
 
