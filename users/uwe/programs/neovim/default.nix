@@ -1,4 +1,5 @@
 { pkgs, lib, ... }:
+with pkgs;
 let
   pluginFromGitHub = rev: ref: repo: pkgs.vimUtils.buildVimPlugin {
     pname = "${lib.strings.sanitizeDerivationName repo}";
@@ -13,7 +14,7 @@ in
 {
   _module.args.pluginFromGitHub = pluginFromGitHub;
 
-  programs.neovim = with pkgs; {
+  programs.neovim = {
     enable = true;
     package = neovim-unwrapped;
     viAlias = true;
@@ -43,4 +44,32 @@ in
     ./plugins/treesitter.nix
     ./plugins/vim-rooter.nix
   ];
+
+  xdg.desktopEntries.nvim = {
+    name = "nvim";
+    genericName = "Text Editor";
+    icon = "nvim";
+    type = "Application";
+    exec = "nvim %F";
+    terminal = true;
+    startupNotify = false;
+    categories = [ "Utility" "TextEditor" ];
+    mimeType = [
+      "text/english"
+      "text/plain"
+      "text/x-makefile"
+      "text/x-c++hdr"
+      "text/x-c++src"
+      "text/x-chdr"
+      "text/x-csrc"
+      "text/x-java"
+      "text/x-moc"
+      "text/x-pascal"
+      "text/x-tcl"
+      "text/x-tex"
+      "application/x-shellscript"
+      "text/x-c"
+      "text/x-c++"
+    ];
+  };
 }
