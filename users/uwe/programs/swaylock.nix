@@ -1,4 +1,5 @@
-{ mainFontName, pkgs, config, ... }:
+{ mainFontName, pkgs, config, hypridle, lib, ... }:
+with lib;
 let
   swaylockPkg = pkgs.swaylock-effects;
   lockCmd = "${swaylockPkg}/bin/swaylock --daemonize --config ${config.xdg.configHome}/swaylock/config";
@@ -9,6 +10,7 @@ let
   yellow = "FFA000FF";
 in
 {
+
   programs.swaylock = {
     enable = true;
     package = swaylockPkg;
@@ -39,6 +41,10 @@ in
     };
   };
 
+  imports = [
+    hypridle.homeManagerModules.default
+  ];
+
   services.hypridle = {
     enable = true;
     beforeSleepCmd = lockCmd;
@@ -50,7 +56,7 @@ in
     ];
   };
 
-  wayland.windowManager.hyprland = {
+  wayland.windowManager.hyprland = mkIf config.wayland.windowManager.hyprland.enable {
     extraConfig = ''
       bind = SUPER, Pause, exec, ${lockCmd}
     '';

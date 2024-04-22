@@ -2,6 +2,7 @@
 {
 
   imports = [
+    hyprland.homeManagerModules.default
     ./waybar.nix
     ./walker.nix
   ];
