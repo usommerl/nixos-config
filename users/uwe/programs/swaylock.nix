@@ -56,9 +56,7 @@ in
     ];
   };
 
-  wayland.windowManager.hyprland = mkIf config.wayland.windowManager.hyprland.enable {
-    extraConfig = ''
-      bind = SUPER, Pause, exec, ${lockCmd}
-    '';
-  };
+  wayland.windowManager.hyprland.extraConfig = mkIf config.wayland.windowManager.hyprland.enable ''
+    bind = SUPER, Pause, exec, ${lockCmd}
+  '';
 }

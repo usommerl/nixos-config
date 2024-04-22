@@ -1,5 +1,5 @@
-{ mainFontName, ... }:
-
+{ mainFontName, lib, config, ... }:
+with lib;
 {
   programs.waybar = {
     enable = true;
@@ -114,7 +114,7 @@
       '';
   };
 
-  wayland.windowManager.hyprland.extraConfig = ''
+  wayland.windowManager.hyprland.extraConfig = mkIf config.wayland.windowManager.hyprland.enable ''
     exec-once = waybar
     exec-once = sleep 2; pkill -SIGUSR1 '.*waybar.*'
     bind = SUPER, B, exec, pkill -SIGUSR1 '.*waybar.*' || waybar

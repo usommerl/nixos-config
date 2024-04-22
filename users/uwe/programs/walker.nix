@@ -1,4 +1,5 @@
-{ mainFontName, walker, ... }:
+{ mainFontName, walker, config, lib, ... }:
+with lib;
 {
 
   imports = [
@@ -204,7 +205,7 @@
     '';
   };
 
-  wayland.windowManager.hyprland.extraConfig = ''
+  wayland.windowManager.hyprland.extraConfig = mkIf config.wayland.windowManager.hyprland.enable ''
     exec-once = walker --gapplication-service
     bind = SUPER, R, exec, walker
   '';
