@@ -9,20 +9,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland = {
-      url = "github:hyprwm/Hyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    hypridle = {
-      url = "github:hyprwm/hypridle";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    walker = {
-      url = "github:abenz1267/walker";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    hyprland.url = "github:hyprwm/Hyprland?ref=v0.39.1";
+    hypridle.url = "github:hyprwm/hypridle?ref=v0.1.2";
+    walker.url = "github:abenz1267/walker?ref=v0.0.70";
   };
 
   outputs = inputs@{
