@@ -75,7 +75,20 @@
             end
           end
 
+          -- Telescope keymaps --------------------------------------------------------------
           vim.keymap.set('n', '<leader>ff', my_find_files)
+          vim.keymap.set('n', '<leader>fb', ':Telescope buffers<cr>')
+          vim.keymap.set('n', '<leader>fc', ':Telescope colorscheme<cr>')
+          vim.keymap.set('n', '<leader>fg', ':Telescope live_grep<cr>')
+          vim.keymap.set('n', '<leader>fk', ':Telescope keymaps<cr>')
+          vim.keymap.set('n', '<leader>fm', ':Telescope metals commands<cr>')
+          vim.keymap.set('n', '<leader>fr', ':Telescope frecency<cr>')
+          vim.keymap.set('n', '<leader>fR', ':Telescope registers<cr>')
+          vim.keymap.set('n', '<leader>gl', ':<C-u>Telescope git_commits<cr>')
+          vim.keymap.set('n', '<leader>gL', ':<C-u>Telescope git_bcommits<cr>')
+          vim.keymap.set('n', '<leader>gb', ':<C-u>Telescope git_branches<cr>')
+          vim.keymap.set('n', 'Z', ':Telescope zoxide list<cr>')
+          vim.keymap.set('n', '<leader>u', ':Telescope undo<cr>')
         '';
       }
     ];
