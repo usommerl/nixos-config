@@ -1,5 +1,5 @@
 {
-  programs.ssh = {
+  programs.ssh = with builtins; {
     enable = true;
     matchBlocks = {
       "harpocrates" = {
@@ -10,7 +10,7 @@
           TERM = "xterm";
         };
       };
-    } // (builtins.listToAttrs (
+    } // (listToAttrs (
      map
        (
          name: {
@@ -22,6 +22,18 @@
          }
        )
      [ "ares" "dolus" "eris" "nyx" "ceto-mac" ]
+    )) // (listToAttrs (
+     map
+       (
+         name: {
+           inherit name;
+           value = {
+             hostname = "${name}.exelonix.com";
+             user = "uwe.sommerlatt";
+           };
+         }
+       )
+     [ "www" "iot" "dev.iot" "noia" "dev.noia" "vodafone" "obre" "dev.obre" "sftp" "demo" "fockeberg" "dev" ]
     ));
   };
 }
