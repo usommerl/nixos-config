@@ -14,7 +14,10 @@
       # See https://wiki.hyprland.org/Configuring/Monitors/
       monitor=,preferred,auto,auto
 
-      exec-once = swww init; swww clear 222436
+      # Disable swww until v0.9.5 is available via nixpkgs
+      # The current version has a bug which renders it useless for now
+      # See: https://github.com/LGFae/swww/issues/289
+      # exec-once = swww-daemon; swww clear 222436
 
       # Some default env vars.
       # env = XCURSOR_SIZE,24
