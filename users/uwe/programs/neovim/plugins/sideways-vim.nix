@@ -1,6 +1,13 @@
 { pkgs, ... }:
 {
   programs.neovim.plugins = [
-    pkgs.vimPlugins.sideways-vim
+    {
+      plugin = pkgs.vimPlugins.sideways-vim;
+      type = "lua";
+      config = ''
+        vim.keymap.set('n', '<A-h>', ':SidewaysLeft<cr>', { desc = "Sideways left" })
+        vim.keymap.set('n', '<A-l>', ':SidewaysRight<cr>', { desc = "Sideways right" })
+      '';
+    }
   ];
 }
