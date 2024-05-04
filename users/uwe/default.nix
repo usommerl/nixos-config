@@ -31,6 +31,7 @@
     lm_sensors
     mtr
     numbat
+    p7zip
     ripgrep
     signal-desktop
     ttyper
