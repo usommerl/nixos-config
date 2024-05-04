@@ -43,6 +43,7 @@ in
     ./plugins/telescope.nix
     ./plugins/treesitter.nix
     ./plugins/vim-rooter.nix
+    ./plugins/which-key.nix
   ];
 
   xdg.desktopEntries.nvim = {
