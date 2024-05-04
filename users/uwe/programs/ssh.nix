@@ -1,3 +1,13 @@
+{ ... }:
+let
+  mkHost = user: domain: subdomain: {
+    name = subdomain;
+    value = {
+      hostname = "${subdomain}.${domain}";
+      user = user;
+    };
+  };
+in
 {
   programs.ssh = with builtins; {
     enable = true;
@@ -11,29 +21,11 @@
         };
       };
     } // (listToAttrs (
-     map
-       (
-         name: {
-           inherit name;
-           value = {
-             hostname = "${name}.tail15a8b.ts.net";
-             user = "uwe";
-           };
-         }
-       )
-     [ "ares" "dolus" "eris" "nyx" "ceto-mac" ]
+     map (mkHost "uwe" "tail15a8b.ts.net")
+         [ "ares" "dolus" "eris" "nyx" "ceto-mac" ]
     )) // (listToAttrs (
-     map
-       (
-         name: {
-           inherit name;
-           value = {
-             hostname = "${name}.exelonix.com";
-             user = "uwe.sommerlatt";
-           };
-         }
-       )
-     [ "www" "iot" "dev.iot" "noia" "dev.noia" "vodafone" "obre" "dev.obre" "sftp" "demo" "fockeberg" "dev" ]
+     map (mkHost "uwe.sommerlatt" "exelonix.com")
+         [ "www" "iot" "dev.iot" "noia" "dev.noia" "vodafone" "obre" "dev.obre" "sftp" "demo" "fockeberg" "dev" ]
     ));
   };
 }
