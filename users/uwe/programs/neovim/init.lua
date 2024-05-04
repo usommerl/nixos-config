@@ -114,6 +114,10 @@ vim.keymap.set("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move line up" 
 vim.keymap.set("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move line down" })
 vim.keymap.set("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move line up" })
 
+-- Increment/Decrement
+vim.keymap.set('n', '+', '<c-a>', { desc = "Increment" })
+vim.keymap.set('n', '-', '<c-x>', { desc = "Decrement" })
+
 -- Git
 map('n', '<leader>gd', ':<C-u>Gdiffsplit<cr>', nrs)
 map('n', '<leader>gg', ':<C-u>Git<cr><C-w>o', nrs)
@@ -123,8 +127,6 @@ map('n', '<leader>gB', ':<C-u>Git blame<cr>', nrs)
 
 map('c', '%%', 'getcmdtype() == ":" ? expand("%:h")."/" : "%%"', nre)
 map('n', '<leader><esc>', '<cmd>nohl | Noice dismiss<cr>', nrs)
-map('n', '+', '<c-a>', nor)
-map('n', '-', '<c-x>', nor)
 map('n', 'gd', ':lua vim.lsp.buf.definition()<cr>', nrs)
 map('n', 'gr', ':lua vim.lsp.buf.references()<cr>', nrs)
 map('n', 'gn', ':lua vim.diagnostic.goto_next({ wrap = false })<cr>', nrs)
