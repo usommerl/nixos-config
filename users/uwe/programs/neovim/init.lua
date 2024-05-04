@@ -107,12 +107,12 @@ vim.keymap.set('n', '<C-k>', '<C-w>k', { desc = "Select window above" })
 vim.keymap.set('n', '<C-l>', '<C-w>l', { desc = "Select window to the right" })
 
 -- Move Lines
-map("n", "<A-j>", "<cmd>m .+1<cr>==", nor)
-map("n", "<A-k>", "<cmd>m .-2<cr>==", nor)
-map("i", "<A-j>", "<esc><cmd>m .+1<cr>==gi", nor)
-map("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", nor)
-map("v", "<A-j>", ":m '>+1<cr>gv=gv", nor)
-map("v", "<A-k>", ":m '<-2<cr>gv=gv", nor)
+vim.keymap.set("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move line down" })
+vim.keymap.set("n", "<A-k>", "<cmd>m .-2<cr>==", { desc = "Move line up" })
+vim.keymap.set("i", "<A-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move line down" })
+vim.keymap.set("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move line up" })
+vim.keymap.set("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move line down" })
+vim.keymap.set("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move line up" })
 
 -- Git
 map('n', '<leader>gd', ':<C-u>Gdiffsplit<cr>', nrs)
