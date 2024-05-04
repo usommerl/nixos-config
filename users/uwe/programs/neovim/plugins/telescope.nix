@@ -76,7 +76,7 @@
           end
 
           -- Telescope keymaps --------------------------------------------------------------
-          vim.keymap.set('n', '<leader>ff', my_find_files)
+          vim.keymap.set('n', '<leader>ff', my_find_files, { desc = "Telescope find_files" })
           vim.keymap.set('n', '<leader>fb', ':Telescope buffers<cr>')
           vim.keymap.set('n', '<leader>fc', ':Telescope colorscheme<cr>')
           vim.keymap.set('n', '<leader>fg', ':Telescope live_grep<cr>')
