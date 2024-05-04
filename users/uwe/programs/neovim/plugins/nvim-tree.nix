@@ -9,6 +9,10 @@
       plugin = p.nvim-tree-lua;
       type = "lua";
       config = ''
+        --- Nvim-Tree plugin ------------------------------------------------------
+
+        vim.keymap.set('n', '<leader>e', ':NvimTreeFindFileToggle<cr>', { desc = "Open file tree" })
+
         local function on_attach(bufnr)
           local api = require('nvim-tree.api')
 
