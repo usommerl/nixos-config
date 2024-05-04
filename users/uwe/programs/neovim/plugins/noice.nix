@@ -10,6 +10,9 @@
       plugin = p.noice-nvim;
       type = "lua";
       config = ''
+        --- Noice plugin ----------------------------------------------------
+        vim.keymap.set('n', '<leader>fn', ':Noice telescope<cr>', { desc = "Telescope noice" })
+
         require("noice").setup({
           presets = {
             command_palette = true,
