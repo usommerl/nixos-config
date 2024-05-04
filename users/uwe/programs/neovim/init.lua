@@ -100,11 +100,11 @@ vim.g.mapleader = ','
 map('n', 'j', 'gj', nor)
 map('n', 'k', 'gk', nor)
 
--- Move to windows
-map('n', '<C-h>', '<C-w>h', nor)
-map('n', '<C-j>', '<C-w>j', nor)
-map('n', '<C-k>', '<C-w>k', nor)
-map('n', '<C-l>', '<C-w>l', nor)
+-- Select windows
+vim.keymap.set('n', '<C-h>', '<C-w>h', { desc = "Select window to the left" })
+vim.keymap.set('n', '<C-j>', '<C-w>j', { desc = "Select window below" })
+vim.keymap.set('n', '<C-k>', '<C-w>k', { desc = "Select window above" })
+vim.keymap.set('n', '<C-l>', '<C-w>l', { desc = "Select window to the right" })
 
 -- Move Lines
 map("n", "<A-j>", "<cmd>m .+1<cr>==", nor)
