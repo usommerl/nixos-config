@@ -97,8 +97,8 @@ local nre = { noremap = true, expr = true }
 vim.g.mapleader = ','
 
 -- better up/down
-map('n', 'j', 'gj', nor)
-map('n', 'k', 'gk', nor)
+vim.keymap.set('n', 'j', 'gj', { desc = "Down" })
+vim.keymap.set('n', 'k', 'gk', { desc = "Up" })
 
 -- Select windows
 vim.keymap.set('n', '<C-h>', '<C-w>h', { desc = "Select window to the left" })
