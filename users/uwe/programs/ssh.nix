@@ -1,15 +1,16 @@
 { ... }:
+with builtins;
 let
-  mkHost = user: domain: subdomain: {
-    name = subdomain;
+  mkMatchBlocks = args : listToAttrs ( map (name: {
+    inherit name;
     value = {
-      hostname = "${subdomain}.${domain}";
-      user = user;
+      hostname = "${name}.${args.domain}";
+      user = args.user;
     };
-  };
+  }) args.names );
 in
 {
-  programs.ssh = with builtins; {
+  programs.ssh = {
     enable = true;
     matchBlocks = {
       "harpocrates" = {
@@ -20,12 +21,14 @@ in
           TERM = "xterm";
         };
       };
-    } // (listToAttrs (
-     map (mkHost "uwe" "tail15a8b.ts.net")
-         [ "ares" "dolus" "eris" "nyx" "ceto-mac" ]
-    )) // (listToAttrs (
-     map (mkHost "uwe.sommerlatt" "exelonix.com")
-         [ "www" "iot" "dev.iot" "noia" "dev.noia" "vodafone" "obre" "dev.obre" "sftp" "demo" "fockeberg" "dev" ]
-    ));
+    } // mkMatchBlocks {
+      user = "uwe";
+      domain = "tail15a8b.ts.net";
+      names = [ "ares" "dolus" "eris" "nyx" "ceto-mac" ];
+    } // mkMatchBlocks {
+      user = "uwe.sommerlatt";
+      domain = "exelonix.com";
+      names = [ "www" "iot" "dev.iot" "noia" "dev.noia" "vodafone" "obre" "dev.obre" "sftp" "demo" "fockeberg" "dev" ];
+    };
   };
 }
