@@ -89,11 +89,6 @@ vim.api.nvim_create_autocmd(
 -------------------------------------------------------
 -- Keymaps --------------------------------------------
 
-local map = vim.api.nvim_set_keymap
-local nor = { noremap = true }
-local nrs = { noremap = true, silent = true }
-local nre = { noremap = true, expr = true }
-
 vim.g.mapleader = ','
 
 -- better up/down
@@ -130,20 +125,22 @@ vim.keymap.set('n', '<leader>tc', ':<c-u>tabclose<cr>', { desc = "Close tab", si
 vim.keymap.set('n', '<leader>yd', ':<c-u>let @+ = expand("%:p:h")<cr>', { desc = "Yank current directory path", silent = true })
 vim.keymap.set('n', '<leader>yf', ':<c-u>let @+ = expand("%:p")<cr>', { desc = "Yank current file path", silent = true })
 vim.keymap.set('n', '<leader>yn', ':<c-u>let @+ = expand("%:p") . ":" . line(".")<cr>', { desc = "Yank current file path with line number", silent = true })
+vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
+vim.keymap.set('n', '<leader>sl', ':<c-u>setlocal list!<cr>', { desc = "Toggle display of listchars", silent = true })
+vim.keymap.set('n', '<leader>sw', ':<c-u>set wrap!<cr>', { desc = "Toggle line wrap", silent = true })
+vim.keymap.set('n', '<leader><esc>', '<cmd>nohl | Noice dismiss<cr>', { desc = "Disable active highlights and messages", silent = true })
+vim.keymap.set('n', '<leader>r<space>', ':<c-u>%s/\\s\\+$/<cr>', { desc = "Remove trailing whitespaces", silent = true })
+vim.keymap.set('c', '%%', 'getcmdtype() == ":" ? expand("%:h")."/" : "%%"', { desc = "Expand current path", expr = true })
 
-map('c', '%%', 'getcmdtype() == ":" ? expand("%:h")."/" : "%%"', nre)
-map('n', '<leader><esc>', '<cmd>nohl | Noice dismiss<cr>', nrs)
-map('n', 'gd', ':lua vim.lsp.buf.definition()<cr>', nrs)
-map('n', 'gr', ':lua vim.lsp.buf.references()<cr>', nrs)
-map('n', 'gn', ':lua vim.diagnostic.goto_next({ wrap = false })<cr>', nrs)
-map('n', 'gp', ':lua vim.diagnostic.goto_prev({ wrap = false })<cr>', nrs)
-map('n', 'K', ':lua vim.lsp.buf.hover()<cr>', nrs)
-map('n', '<leader>,', ':lua vim.lsp.buf.code_action()<cr>', nrs)
-map('n', '<leader>r<space>', ':<c-u>%s/\\s\\+$/<cr>', nor)
-map('n', '<leader>re', ':lua vim.lsp.buf.rename()<cr>', nrs)
-map('n', '<leader>sl', ':<c-u>setlocal list!<cr>', nor)
-map('n', '<leader>sw', ':<c-u>set wrap!<cr>', nor)
-map('n', '<leader>w', ':<c-u>Win<cr>', nrs)
-map('n', '<leader>xx', ':TroubleToggle<cr>', nrs)
-map('t', '<Esc>', '<C-\\><C-n>', nor)
+-- LSP
+vim.keymap.set('n', 'gd', ':lua vim.lsp.buf.definition()<cr>', { desc = "LSP go to definition", silent = true })
+vim.keymap.set('n', 'gr', ':lua vim.lsp.buf.references()<cr>', { desc = "LSP go to references", silent = true })
+vim.keymap.set('n', 'gn', ':lua vim.diagnostic.goto_next({ wrap = false })<cr>', { desc = "LSP next diagnostic item", silent = true })
+vim.keymap.set('n', 'gp', ':lua vim.diagnostic.goto_prev({ wrap = false })<cr>', { desc = "LSP previous diagnostic item", silent = true })
+vim.keymap.set('n', 'K', ':lua vim.lsp.buf.hover()<cr>', { desc = "LSP hover", silent = true })
+vim.keymap.set('n', '<leader>,', ':lua vim.lsp.buf.code_action()<cr>', { desc = "LSP code action", silent = true })
+vim.keymap.set('n', '<leader>re', ':lua vim.lsp.buf.rename()<cr>', { desc = "LSP rename", silent = true })
+
+-- vim.keymap.set('n', '<leader>w', ':<c-u>Win<cr>', { desc = "Win", silent = true })
+-- vim.keymap.set('n', '<leader>xx', ':TroubleToggle<cr>', { desc = "Trouble toggle", silent = true })
 
