@@ -12,6 +12,10 @@
         plugin = p.nvim-spectre;
         type = "lua";
         config = ''
+          --- Spectre plugin -----------------------------------------------
+
+          vim.keymap.set('n', '<leader>S', ':<c-u>lua require("spectre").toggle()<cr>', { desc = "Search and replace" })
+
           vim.api.nvim_create_autocmd(
             'FileType',
             {
