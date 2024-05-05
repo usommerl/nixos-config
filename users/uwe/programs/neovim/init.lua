@@ -131,13 +131,6 @@ vim.keymap.set('n', '<leader>yd', ':<c-u>let @+ = expand("%:p:h")<cr>', { desc =
 vim.keymap.set('n', '<leader>yf', ':<c-u>let @+ = expand("%:p")<cr>', { desc = "Yank current file path" })
 vim.keymap.set('n', '<leader>yn', ':<c-u>let @+ = expand("%:p") . ":" . line(".")<cr>', { desc = "Yank current file path with line number" })
 
--- Git
-map('n', '<leader>gd', ':<C-u>Gdiffsplit<cr>', nrs)
-map('n', '<leader>gg', ':<C-u>Git<cr><C-w>o', nrs)
-map('n', '<leader>gps', ':<C-u>Git push<cr>', nrs)
-map('n', '<leader>gpl', ':<C-u>Git pull<cr>', nrs)
-map('n', '<leader>gB', ':<C-u>Git blame<cr>', nrs)
-
 map('c', '%%', 'getcmdtype() == ":" ? expand("%:h")."/" : "%%"', nre)
 map('n', '<leader><esc>', '<cmd>nohl | Noice dismiss<cr>', nrs)
 map('n', 'gd', ':lua vim.lsp.buf.definition()<cr>', nrs)

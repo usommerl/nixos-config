@@ -28,6 +28,7 @@ in
     ./plugins/bufferline.nix
     ./plugins/colorschemes.nix
     ./plugins/comment.nix
+    ./plugins/fugitive.nix
     ./plugins/gitsigns.nix
     ./plugins/indent-blankline.nix
     ./plugins/linediff.nix
