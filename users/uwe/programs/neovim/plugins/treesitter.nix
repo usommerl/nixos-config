@@ -7,6 +7,7 @@
         plugin = pkgs.vimPlugins.nvim-treesitter.withPlugins (l:
           [
            l.bash
+           l.c
            l.lua
            l.json
            l.markdown
