@@ -1,5 +1,6 @@
 { lib, config, ... }:
-with lib; {
+with lib;
+{
   options = {
     user = {
        username = mkOption {
