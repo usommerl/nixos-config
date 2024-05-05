@@ -1,3 +1,10 @@
+-- See:
+--  - https://github.com/neovim/neovim/pull/22668
+--  - https://github.com/neovim/neovim/pull/24044
+if vim.loader then
+  vim.loader.enable()
+end
+
 -------------------------------------------------------
 -- Functions ------------------------------------------
 
