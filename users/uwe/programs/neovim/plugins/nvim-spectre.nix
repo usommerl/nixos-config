@@ -14,7 +14,7 @@
         config = ''
           --- Spectre plugin -----------------------------------------------
 
-          vim.keymap.set('n', '<leader>S', ':<c-u>lua require("spectre").toggle()<cr>', { desc = "Search and replace" })
+          vim.keymap.set('n', '<leader>S', ':<c-u>lua require("spectre").toggle()<cr>', { desc = "Search and replace", silent = true })
 
           vim.api.nvim_create_autocmd(
             'FileType',
