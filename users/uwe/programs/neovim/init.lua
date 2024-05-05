@@ -118,6 +118,10 @@ vim.keymap.set("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move line up" })
 vim.keymap.set('n', '+', '<c-a>', { desc = "Increment" })
 vim.keymap.set('n', '-', '<c-x>', { desc = "Decrement" })
 
+-- Move view
+vim.keymap.set('n', '<c-e>', '6<c-e>', { desc = "Move view down" })
+vim.keymap.set('n', '<c-y>', '6<c-y>', { desc = "Move view up" })
+
 -- Git
 map('n', '<leader>gd', ':<C-u>Gdiffsplit<cr>', nrs)
 map('n', '<leader>gg', ':<C-u>Git<cr><C-w>o', nrs)
@@ -132,8 +136,6 @@ map('n', 'gr', ':lua vim.lsp.buf.references()<cr>', nrs)
 map('n', 'gn', ':lua vim.diagnostic.goto_next({ wrap = false })<cr>', nrs)
 map('n', 'gp', ':lua vim.diagnostic.goto_prev({ wrap = false })<cr>', nrs)
 map('n', 'K', ':lua vim.lsp.buf.hover()<cr>', nrs)
-map('n', '<c-e>', '6<c-e>', nor)
-map('n', '<c-y>', '6<c-y>', nor)
 map('n', '<leader>.', ':b#<cr>', nrs)
 map('n', '<leader>,', ':lua vim.lsp.buf.code_action()<cr>', nrs)
 map('n', '<leader>dw', ':lua diff_toggle()<cr>', nrs)
