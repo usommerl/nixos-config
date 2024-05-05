@@ -16,6 +16,7 @@
            l.scala
            l.scss
            l.typescript
+           l.vimdoc
            l.yaml
           ]
         );
