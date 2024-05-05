@@ -51,9 +51,9 @@
           vim.keymap.set('n', '<leader>fm', ':Telescope metals commands<cr>')
           vim.keymap.set('n', '<leader>fr', ':Telescope frecency<cr>')
           vim.keymap.set('n', '<leader>fR', ':Telescope registers<cr>')
-          vim.keymap.set('n', '<leader>gl', ':<C-u>Telescope git_commits<cr>')
-          vim.keymap.set('n', '<leader>gL', ':<C-u>Telescope git_bcommits<cr>')
-          vim.keymap.set('n', '<leader>gb', ':<C-u>Telescope git_branches<cr>')
+          vim.keymap.set('n', '<leader>gl', ':Telescope git_commits<cr>')
+          vim.keymap.set('n', '<leader>gL', ':Telescope git_bcommits<cr>')
+          vim.keymap.set('n', '<leader>gb', ':Telescope git_branches<cr>')
           vim.keymap.set('n', 'Z', ':Telescope zoxide list<cr>')
           vim.keymap.set('n', '<leader>u', ':Telescope undo<cr>')
 
