@@ -8,11 +8,11 @@ with pkgs;
 
   # To start the Google Chrome browser via an application runner
   xdg.desktopEntries.chrome = {
-    name = "chrome";
+    name = "Chrome";
     genericName = "Web Browser";
     icon = "google-chrome";
     type = "Application";
-    exec = "${google-chrome}/bin/google-chrome-stable";
+    exec = "google-chrome-stable";
     terminal = false;
     startupNotify = true;
     categories = [ "Application" "Network" "WebBrowser" ];
