@@ -1,4 +1,4 @@
-{ mainFontName, pkgs, config, hypridle, lib, ... }:
+{ mainFontName, pkgs, config, lib, ... }:
 with lib;
 let
   swaylockPkg = pkgs.swaylock-effects;
@@ -41,19 +41,17 @@ in
     };
   };
 
-  imports = [
-    hypridle.homeManagerModules.default
-  ];
-
   services.hypridle = {
     enable = true;
-    beforeSleepCmd = lockCmd;
-    listeners = [
-      {
-        timeout = 600;
-        onTimeout = lockCmd;
-      }
-    ];
+    settings = {
+      general.before_sleep_cmd = lockCmd;
+      listener = [
+        {
+          timeout = 600;
+          on-timeout = lockCmd;
+        }
+      ];
+    };
   };
 
   wayland.windowManager.hyprland.extraConfig = mkIf config.wayland.windowManager.hyprland.enable ''

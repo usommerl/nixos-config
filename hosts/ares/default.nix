@@ -1,4 +1,4 @@
-{ pkgs, config, lib, hyprland, hostName, mainUser, ... }:
+{ pkgs, config, lib, hostName, mainUser, ... }:
 with lib;
 let
   mainUserMountConfig = ../../users/${mainUser}/mounts;
@@ -16,12 +16,10 @@ in
       auto-optimise-store = true;
 
       substituters = [
-        "https://hyprland.cachix.org"
         "https://walker.cachix.org"
       ];
 
       trusted-public-keys = [
-        "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
         "walker.cachix.org-1:fG8q+uAaMqhsMxWjwvk0IMb4mFPFLqHjuvfwQxE4oJM="
       ];
     };
@@ -110,10 +108,7 @@ in
     fish.enable = true;
     command-not-found.enable = false;
     fuse.userAllowOther = true;
-    hyprland = {
-      enable = true;
-      package = hyprland.packages.${pkgs.system}.hyprland;
-    };
+    hyprland.enable = true;
   };
 
   users.users.${mainUser} = {

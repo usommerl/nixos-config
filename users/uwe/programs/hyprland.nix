@@ -1,8 +1,7 @@
-{ pkgs, hyprland, ... }:
+{ pkgs, ... }:
 {
 
   imports = [
-    hyprland.homeManagerModules.default
     ./waybar.nix
     ./walker.nix
   ];
@@ -149,7 +148,7 @@
     (
       let
         name = "hyprcwd";
-        buildInputs = with pkgs; [ hyprland.packages.${pkgs.stdenv.hostPlatform.system}.default jq procps coreutils-full ];
+        buildInputs = with pkgs; [ hyprland jq procps coreutils-full ];
         script = pkgs.writeShellScriptBin name ''
           pid=$(hyprctl activewindow -j | jq '.pid')
           ppid=$(pgrep --newest --parent "$pid")
