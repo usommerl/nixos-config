@@ -23,6 +23,7 @@
     google-drive-ocamlfuse
     htop
     hyperfine
+    httpie
     jq
     killall
     kubectl
