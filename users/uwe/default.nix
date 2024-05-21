@@ -15,6 +15,7 @@
     (nerdfonts.override { fonts = [ "JetBrainsMono" "IBMPlexMono" ]; })
     bat
     btop
+    calibre
     certigo
     docker-compose
     dogdns
