@@ -17,4 +17,11 @@
       sandbox = "none";
     };
   };
+
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+      "application/pdf" = [ "org.pwmt.zathura-pdf-mupdf.desktop" ];
+    };
+  };
 }
