@@ -53,8 +53,11 @@ in
     };
 
     loader = {
-      systemd-boot.enable = true;
-      systemd-boot.configurationLimit = 50;
+      systemd-boot = {
+        enable = true;
+        configurationLimit = 50;
+        consoleMode = "auto";
+      };
       efi.canTouchEfiVariables = true;
       timeout = 0;
     };
