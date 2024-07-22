@@ -13,11 +13,6 @@
       # See https://wiki.hyprland.org/Configuring/Monitors/
       monitor=,preferred,auto,auto
 
-      # Disable swww until v0.9.5 is available via nixpkgs
-      # The current version has a bug which renders it useless for now
-      # See: https://github.com/LGFae/swww/issues/289
-      # exec-once = swww-daemon; swww clear 222436
-
       # Some default env vars.
       # env = XCURSOR_SIZE,24
 
@@ -81,6 +76,7 @@
       misc {
         force_default_wallpaper = 0
         disable_hyprland_logo = true
+        background_color = 0x222436
       }
 
       # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
@@ -162,6 +158,5 @@
         postBuild = "wrapProgram $out/bin/${name} --prefix PATH : $out/bin";
       }
     )
-    pkgs.swww
   ];
 }
