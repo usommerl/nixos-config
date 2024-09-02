@@ -14,7 +14,10 @@
       monitor=,preferred,auto,auto
 
       # Some default env vars.
-      # env = XCURSOR_SIZE,24
+      env = XCURSOR_SIZE,24
+      env = XCURSOR_THEME,'Capitaine Cursors'
+
+      exec-once = hyprctl setcursor capitaine-cursors 24
 
       input {
         kb_layout = de
@@ -139,9 +142,9 @@
     '';
   };
 
-  # hyprcwd script shamelessly stolen from https://github.com/vilari-mickopf/hyprcwd
-  home.packages = [
-    (
+  home.packages = with pkgs; [
+    capitaine-cursors
+    ( # hyprcwd script shamelessly stolen from https://github.com/vilari-mickopf/hyprcwd
       let
         name = "hyprcwd";
         buildInputs = with pkgs; [ hyprland jq procps coreutils-full ];
