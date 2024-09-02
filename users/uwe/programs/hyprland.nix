@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
 
   imports = [
@@ -13,11 +13,9 @@
       # See https://wiki.hyprland.org/Configuring/Monitors/
       monitor=,preferred,auto,auto
 
-      # Some default env vars.
       env = XCURSOR_SIZE,24
-      env = XCURSOR_THEME,'Capitaine Cursors'
-
-      exec-once = hyprctl setcursor capitaine-cursors 24
+      env = XCURSOR_THEME,Adwaita
+      exec-once = hyprctl setcursor Adwaita 24
 
       input {
         kb_layout = de
@@ -143,7 +141,7 @@
   };
 
   home.packages = with pkgs; [
-    capitaine-cursors
+    adwaita-icon-theme
     ( # hyprcwd script shamelessly stolen from https://github.com/vilari-mickopf/hyprcwd
       let
         name = "hyprcwd";
@@ -162,4 +160,9 @@
       }
     )
   ];
+
+  home.file."${config.xdg.dataHome}/icons/default/index.theme".text = ''
+    [icon theme]
+    Inherits=Adwaita
+  '';
 }
