@@ -28,7 +28,26 @@ in
     } // mkMatchBlocks {
       user = "uwe.sommerlatt";
       domain = "exelonix.com";
-      names = [ "www" "iot" "dev.iot" "noia" "dev.noia" "vodafone" "obre" "dev.obre" "sftp" "demo" "fockeberg" "dev" ];
+      names = [
+        "anvil"
+        "truck"
+        "topic"
+        "billy"
+        "pablo"
+        "basil"
+        "www"
+        "iot"
+        "dev.iot"
+        "noia"
+        "dev.noia"
+        "vodafone"
+        "obre"
+        "dev.obre"
+        "sftp"
+        "demo"
+        "fockeberg"
+        "dev"
+      ];
     };
   };
 }
