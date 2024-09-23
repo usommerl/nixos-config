@@ -46,7 +46,6 @@ in
         "sftp"
         "demo"
         "fockeberg"
-        "dev"
       ];
     };
   };
