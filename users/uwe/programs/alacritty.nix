@@ -7,7 +7,7 @@ in
   programs.alacritty = {
     enable = true;
     settings = {
-      import = [
+      general.import = [
         "${tokyonight}/extras/alacritty/tokyonight_moon.toml"
       ];
       font.normal.family = "${mainFontName}";
