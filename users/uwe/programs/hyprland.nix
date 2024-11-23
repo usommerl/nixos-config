@@ -71,7 +71,6 @@
 
       dwindle {
         preserve_split = true # you probably want this
-        no_gaps_when_only = 1
       }
 
       misc {
