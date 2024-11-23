@@ -81,6 +81,15 @@
         background_color = 0x222436
       }
 
+      # Replicate “smart gaps” / “no gaps when only” from other WMs/Compositors
+      # See: https://wiki.hyprland.org/Configuring/Workspace-Rules/#smart-gaps
+      workspace = w[tv1], gapsout:0, gapsin:0
+      workspace = f[1], gapsout:0, gapsin:0
+      windowrulev2 = bordersize 0, floating:0, onworkspace:w[tv1]
+      windowrulev2 = rounding 0, floating:0, onworkspace:w[tv1]
+      windowrulev2 = bordersize 0, floating:0, onworkspace:f[1]
+      windowrulev2 = rounding 0, floating:0, onworkspace:f[1]
+
       # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
       bind = SUPER, RETURN, exec, alacritty --working-directory "$(hyprcwd)"
       bind = SUPER SHIFT, RETURN, exec, alacritty
