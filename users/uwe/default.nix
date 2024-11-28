@@ -34,6 +34,7 @@
     mtr
     numbat
     p7zip
+    remmina
     ripgrep
     signal-desktop
     ttyper
