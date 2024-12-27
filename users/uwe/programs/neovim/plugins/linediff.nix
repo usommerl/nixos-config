@@ -2,7 +2,7 @@
 {
   programs.neovim.plugins = [
     {
-      plugin = (pluginFromGitHub "245d16328c47a132574e0fa4298d24a0f78b20b0" "main" "AndrewRadev/linediff.vim");
+      plugin = (pluginFromGitHub "ddae71ef5f94775d101c1c70032ebe8799f32745" "main" "AndrewRadev/linediff.vim");
       type = "lua";
       config = ''
         vim.keymap.set('n', '<leader>dl', ':Linediff<cr>', { desc = "Diff line", silent = true })
