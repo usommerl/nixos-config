@@ -34,6 +34,7 @@ in
     ./plugins/linediff.nix
     ./plugins/lualine.nix
     ./plugins/markdown-preview.nix
+    ./plugins/modes.nix
     ./plugins/noice.nix
     ./plugins/nvim-spectre.nix
     ./plugins/nvim-surround.nix
