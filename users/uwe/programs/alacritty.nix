@@ -1,14 +1,11 @@
-{ mainFontName, pluginFromGitHub, ... }:
-let
-  # I need a more recent version that contains alacritty colorschemes in toml format
-  tokyonight = (pluginFromGitHub "610179f7f12db3d08540b6cc61434db2eaecbcff" "main" "folke/tokyonight.nvim");
-in
+{ pkgs, mainFontName, ... }:
+with pkgs;
 {
   programs.alacritty = {
     enable = true;
     settings = {
       general.import = [
-        "${tokyonight}/extras/alacritty/tokyonight_moon.toml"
+        "${vimPlugins.tokyonight-nvim}/extras/alacritty/tokyonight_moon.toml"
       ];
       font.normal.family = "${mainFontName}";
       scrolling.history = 20000;
