@@ -12,7 +12,6 @@
   };
 
   home.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "JetBrainsMono" "IBMPlexMono" ]; })
     bat
     btop
     calibre
@@ -32,6 +31,8 @@
     libreoffice
     lm_sensors
     mtr
+    nerd-fonts.blex-mono
+    nerd-fonts.jetbrains-mono
     numbat
     p7zip
     remmina
