@@ -33,6 +33,7 @@
     mtr
     nerd-fonts.blex-mono
     nerd-fonts.jetbrains-mono
+    nix-search-cli
     numbat
     p7zip
     remmina
