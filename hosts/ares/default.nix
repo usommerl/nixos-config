@@ -63,6 +63,19 @@ in
     };
   };
 
+  hardware = {
+    bluetooth = {
+      enable = true; # enables support for Bluetooth
+      powerOnBoot = true; # powers up the default Bluetooth controller on boot
+      settings = {
+        General = {
+          Experimental = true; # Showing battery charge of bluetooth devices
+          Enable = "Source,Sink,Media,Socket"; # Enabling A2DP Sink
+        };
+      };
+    };
+  };
+
   environment.variables.EDITOR = "nvim";
   environment.systemPackages = with pkgs; [
     cifs-utils

@@ -54,6 +54,7 @@
   programs.home-manager.enable = true;
   programs.bash.enable = true;
   programs.nix-index.enable = true;
+  services.mpris-proxy.enable = true;
 
   home.stateVersion = "23.05";
 }
