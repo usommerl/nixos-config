@@ -20,6 +20,7 @@
     dogdns
     du-dust
     fio
+    freecad-wayland
     google-drive-ocamlfuse
     htop
     hyperfine
