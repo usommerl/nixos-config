@@ -32,6 +32,27 @@ in
       set -gx fzf_fd_opts --hidden --exclude=.git
       set -gx FZF_DEFAULT_OPTS '--cycle --layout=reverse --border --height=90% --preview-window=wrap --marker="*" --bind ctrl-alt-k:preview-up,ctrl-alt-j:preview-down'
       set -gx EXA_COLORS 'da=38;5;244:uu=38;5;244:gu=38;5;244:un=33:gn=33:ur=38;5;244:gr=38;5;244:tr=38;5;244:uw=38;5;244:gw=38;5;244:tw=38;5;244:sn=15:sb=15:ux=38;5;244:ue=38;5;244:gx=38;5;244:tx=38;5;244:ga=1;31:gm=1;31'
+
+      function __bctl_connect
+        bluetoothctl -- power off
+        bluetoothctl -- power on
+        bluetoothctl -- connect $argv[1]
+      end
+
+      function bctl
+        switch $argv[1]
+          case off
+            bluetoothctl -- power off
+          case aiaiai
+            __bctl_connect 1C:6E:4C:9A:05:59
+          case nubert
+            __bctl_connect CC:90:93:12:6D:C8
+          case '*'
+            echo "Unknown argument: $argv[1]"
+        end
+      end
+      complete -c bctl -n "not __fish_seen_subcommand_from $commands" \
+          -a "off aiaiai nubert"
     '';
 
     shellAbbrs = {
