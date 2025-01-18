@@ -13,6 +13,7 @@
 
   home.packages = with pkgs; [
     bat
+    bluetui
     btop
     calibre
     certigo
