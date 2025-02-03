@@ -6,7 +6,7 @@ in
 {
   # TODO: Credentials file?
   fileSystems."/mnt/${user}/harpocrates" = {
-    device = "//harpocrates.tail15a8b.ts.net/homes/${user}";
+    device = "//harpocrates.zebra-kitchen.ts.net/homes/${user}";
     fsType = "cifs";
     options = [
       "noauto,x-systemd.automount"

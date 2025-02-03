@@ -14,7 +14,7 @@ in
     enable = true;
     matchBlocks = {
       "harpocrates" = {
-        hostname = "harpocrates.tail15a8b.ts.net";
+        hostname = "harpocrates.zebra-kitchen.ts.net";
         port = 7022;
         user = "uwe";
         setEnv = {
@@ -23,7 +23,7 @@ in
       };
     } // mkMatchBlocks {
       user = "uwe";
-      domain = "tail15a8b.ts.net";
+      domain = "zebra-kitchen.ts.net";
       names = [ "ares" "dolus" "eris" "nyx" "ceto-mac" ];
     } // mkMatchBlocks {
       user = "uwe.sommerlatt";
