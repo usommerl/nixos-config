@@ -4,6 +4,7 @@
     ./atuin.nix
     ./direnv.nix
     ./feh.nix
+    ./firefox.nix
     ./fish.nix
     ./git.nix
     ./google-chrome.nix
