@@ -7,7 +7,7 @@
     genericName = "Web Browser";
     icon = "firefox";
     type = "Application";
-    exec = "firefox --new-window %U";
+    exec = "firefox --new-tab %U";
     terminal = false;
     startupNotify = true;
     categories = [ "Application" "Network" "WebBrowser" ];
