@@ -37,6 +37,7 @@
     nerd-fonts.jetbrains-mono
     nix-search-cli
     numbat
+    opencommit
     p7zip
     remmina
     ripgrep
