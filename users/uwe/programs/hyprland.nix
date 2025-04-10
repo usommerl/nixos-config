@@ -103,10 +103,9 @@
       bind = SUPER SHIFT CTRL, s, exec, poweroff
 
       # Move focus
-      binde = SUPER, h, movefocus, l
-      binde = SUPER, l, movefocus, r
-      binde = SUPER, k, movefocus, u
-      binde = SUPER, j, movefocus, d
+      binde = SUPER, j, cyclenext
+      binde = SUPER, k, cyclenext, prev
+
 
       # Move window
       binde = SUPER SHIFT, h, movewindow, l
