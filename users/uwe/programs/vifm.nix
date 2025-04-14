@@ -216,8 +216,8 @@
            \ FUSE_MOUNT2|curlftpfs -o ftp_port=-,,disable_eprt %PARAM %DESTINATION_DIR,
 
     filetype *.7z
-           \ {Mount with fuse-7z}
-           \ FUSE_MOUNT|fuse-7z %SOURCE_FILE %DESTINATION_DIR,
+           \ {Mount with fuse-7z-ng}
+           \ FUSE_MOUNT|fuse-7z-ng %SOURCE_FILE %DESTINATION_DIR,
 
     fileviewer *.7z 7z l %c
     filextype *.odt,*.doc,*.docx,*.xls,*.xlsx,*.odp,*.pptx libreoffice %f &
