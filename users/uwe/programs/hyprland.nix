@@ -4,6 +4,7 @@
   imports = [
     ./waybar.nix
     ./walker.nix
+    ./dunst.nix
   ];
 
   wayland.windowManager.hyprland = {
