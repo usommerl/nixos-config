@@ -33,19 +33,9 @@ in
         "truck"
         "topic"
         "billy"
+        "lunar"
         "pablo"
         "basil"
-        "www"
-        "iot"
-        "dev.iot"
-        "noia"
-        "dev.noia"
-        "vodafone"
-        "obre"
-        "dev.obre"
-        "sftp"
-        "demo"
-        "fockeberg"
       ];
     };
   };
