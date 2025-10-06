@@ -1,14 +1,4 @@
-{ system, pkgs, config, ... }:
-let
-  pinnedNixPkgs = import(builtins.fetchGit {
-    name = "nixos-unstable-2025-07-08";
-    url = "https://github.com/nixos/nixpkgs/";
-    ref = "refs/heads/nixos-unstable";
-    rev = "9807714d6944a957c2e036f84b0ff8caf9930bc0";
-  }) {
-    inherit system;
-  };
-in
+{ pkgs, config, ... }:
 {
 
   imports = [
@@ -19,7 +9,6 @@ in
 
   wayland.windowManager.hyprland = {
     enable = true;
-    package = pinnedNixPkgs.hyprland;
     systemd.enable = true;
     extraConfig = ''
       # See https://wiki.hyprland.org/Configuring/Monitors/
@@ -166,7 +155,7 @@ in
     ( # hyprcwd script shamelessly stolen from https://github.com/vilari-mickopf/hyprcwd
       let
         name = "hyprcwd";
-        buildInputs = with pkgs; [ pinnedNixPkgs.hyprland jq procps coreutils-full ];
+        buildInputs = with pkgs; [ hyprland jq procps coreutils-full ];
         script = pkgs.writeShellScriptBin name ''
           pid=$(hyprctl activewindow -j | jq '.pid')
           ppid=$(pgrep --newest --parent "$pid")

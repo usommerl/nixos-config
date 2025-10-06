@@ -138,6 +138,7 @@ in
     fish.enable = true;
     command-not-found.enable = false;
     fuse.userAllowOther = true;
+    hyprland.enable = true;
   };
 
   users.users.${mainUser} = {

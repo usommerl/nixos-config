@@ -24,7 +24,7 @@
 
       ares = nixosSystem rec {
         system = "x86_64-linux";
-        specialArgs = (attrsets.mergeAttrsList [ { mainUser = "uwe"; hostName = "ares"; } inputs { inherit system; }]);
+        specialArgs = (attrsets.mergeAttrsList [ { mainUser = "uwe"; hostName = "ares"; } inputs ]);
         modules = [
           ./hosts/${specialArgs.hostName}
           home-manager.nixosModules.home-manager
