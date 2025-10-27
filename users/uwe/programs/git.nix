@@ -9,37 +9,21 @@
 
   programs.git = {
     enable = true;
-    userName = config.user.fullname;
-    userEmail = config.user.email;
 
-    delta = {
-      enable = true;
-      options = {
-        navigate = true;
-        line-numbers = true;
-        diff-highlight = true;
-        hunk-header-style = "hidden";
-        file-style = "blue";
-        file-decoration-style = "omit";
-        line-numbers-left-format = "{nm:^4}⋮ ";
-        line-numbers-right-format = "{np:^4}│ ";
-        line-numbers-left-style = "#777777";
-        line-numbers-right-style = "#777777";
-        line-numbers-zero-style = "#777777";
-        line-numbers-minus-style = "#BB0000";
-        line-numbers-plus-style = "#009900";
+    settings = {
+
+      user = {
+        name = config.user.fullname;
+        email = config.user.email;
       };
-    };
 
-    aliases = {
-      "fd" = "!f(){ git log --oneline $@ | sed -nr 's/.*Merged in .*\\/([A-Z]+-[0-9]+).*/\\1/p' | tr '\\n' ' ' | tee /dev/tty | xclip -i -sel clipboard; }; f";
-      "in" = "!f(){ local b=$(git symbolic-ref --short HEAD); local r=\${1:-origin}; git fetch $r $b; git lo \${2:-} ..$r/$b; }; f";
-      "lo" = "!f(){ git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ad) %Cblue<%an>%Creset' --date=short $@; }; f";
-      "out" = "!f() { local b=$(git symbolic-ref --short HEAD); local r=\${1:-origin}; git lo \${2:-} $r/$b..; }; f";
-      "sw" = "!f(){ git switch \"$(git branch --all | fzf | sed -r 's/^[ \\*]*(remotes\\/\\w+\\/)?//g')\"; }; f";
-    };
-
-    extraConfig = {
+      alias = {
+        "fd" = "!f(){ git log --oneline $@ | sed -nr 's/.*Merged in .*\\/([A-Z]+-[0-9]+).*/\\1/p' | tr '\\n' ' ' | tee /dev/tty | xclip -i -sel clipboard; }; f";
+        "in" = "!f(){ local b=$(git symbolic-ref --short HEAD); local r=\${1:-origin}; git fetch $r $b; git lo \${2:-} ..$r/$b; }; f";
+        "lo" = "!f(){ git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ad) %Cblue<%an>%Creset' --date=short $@; }; f";
+        "out" = "!f() { local b=$(git symbolic-ref --short HEAD); local r=\${1:-origin}; git lo \${2:-} $r/$b..; }; f";
+        "sw" = "!f(){ git switch \"$(git branch --all | fzf | sed -r 's/^[ \\*]*(remotes\\/\\w+\\/)?//g')\"; }; f";
+      };
 
       color.ui = true;
       diff.submodule = "diff";
@@ -79,9 +63,29 @@
         autoStash = true;
         autoSquash = true;
       };
-
     };
   };
+
+  programs.delta = {
+    enable = true;
+    options = {
+      navigate = true;
+      line-numbers = true;
+      diff-highlight = true;
+      hunk-header-style = "hidden";
+      file-style = "blue";
+      file-decoration-style = "omit";
+      line-numbers-left-format = "{nm:^4}⋮ ";
+      line-numbers-right-format = "{np:^4}│ ";
+      line-numbers-left-style = "#777777";
+      line-numbers-right-style = "#777777";
+      line-numbers-zero-style = "#777777";
+      line-numbers-minus-style = "#BB0000";
+      line-numbers-plus-style = "#009900";
+    };
+  };
+
+
 
   home.file."${config.xdg.configHome}/git/templates/hooks/prepare-commit-msg" = {
     executable = true;
