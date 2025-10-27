@@ -12,6 +12,7 @@ in
 {
   programs.ssh = {
     enable = true;
+    enableDefaultConfig = false;
     matchBlocks = {
       "harpocrates" = {
         hostname = "harpocrates.zebra-kitchen.ts.net";
