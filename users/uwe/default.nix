@@ -40,6 +40,7 @@
     numbat
     opencommit
     p7zip
+    pdftk
     remmina
     ripgrep
     signal-desktop
