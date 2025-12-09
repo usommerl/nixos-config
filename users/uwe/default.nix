@@ -19,7 +19,7 @@
     certigo
     docker-compose
     dogdns
-    du-dust
+    dust
     fio
     freecad-wayland
     google-drive-ocamlfuse
