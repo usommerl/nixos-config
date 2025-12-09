@@ -147,6 +147,10 @@
       # "Hide" client by moving it to the special workspace
       bind = SUPER, n, movetoworkspacesilent, special
       bind = SUPER CTRL, n, togglespecialworkspace
+
+      ecosystem {
+        no_update_news = true
+      }
     '';
   };
 
