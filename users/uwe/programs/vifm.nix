@@ -266,10 +266,10 @@
     (
       let
         name = "open-desktop-file";
-        buildInputs = with pkgs; [ xdg-utils google-chrome gnugrep ];
+        buildInputs = with pkgs; [ xdg-utils firefox gnugrep ];
         script = pkgs.writeShellScriptBin name ''
           if grep -q 'Type=Link' "$1"; then
-            google-chrome-stable "$(grep 'URL=' "$1" | cut -d '=' -f 2-)"
+            firefox "$(grep 'URL=' "$1" | cut -d '=' -f 2-)"
           else
             xdg-open $1
           fi
