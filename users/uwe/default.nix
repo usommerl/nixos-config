@@ -18,7 +18,7 @@
     calibre
     certigo
     docker-compose
-    dogdns
+    doggo
     dust
     fio
     freecad-wayland

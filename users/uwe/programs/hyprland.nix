@@ -86,10 +86,10 @@
       # See: https://wiki.hyprland.org/Configuring/Workspace-Rules/#smart-gaps
       workspace = w[tv1], gapsout:0, gapsin:0
       workspace = f[1], gapsout:0, gapsin:0
-      windowrulev2 = bordersize 0, floating:0, onworkspace:w[tv1]
-      windowrulev2 = rounding 0, floating:0, onworkspace:w[tv1]
-      windowrulev2 = bordersize 0, floating:0, onworkspace:f[1]
-      windowrulev2 = rounding 0, floating:0, onworkspace:f[1]
+      windowrule = border_size 0, match:float 0, match:workspace w[tv1]
+      windowrule = rounding 0, match:float 0, match:workspace w[tv1]
+      windowrule = border_size 0, match:float 0, match:workspace f[1]
+      windowrule = rounding 0, match:float 0, match:workspace f[1]
 
       # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
       bind = SUPER, RETURN, exec, alacritty --working-directory "$(hyprcwd)"

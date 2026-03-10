@@ -21,7 +21,7 @@ in
     vimAlias = true;
     vimdiffAlias = true;
     defaultEditor = true;
-    extraLuaConfig = builtins.readFile ./init.lua;
+    initLua = builtins.readFile ./init.lua;
   };
 
   imports = [
