@@ -2,6 +2,7 @@
   imports = [
     ./alacritty.nix
     ./atuin.nix
+    ./claude-code.nix
     ./direnv.nix
     ./feh.nix
     ./firefox.nix
