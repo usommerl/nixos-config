@@ -22,8 +22,6 @@ in
     vimdiffAlias = true;
     defaultEditor = true;
     initLua = builtins.readFile ./init.lua;
-    withRuby = false;
-    withPython3 = false;
   };
 
   imports = [
