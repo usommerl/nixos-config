@@ -17,7 +17,7 @@ with lib;
         hide_spinner = true;
       };
 
-      fullscree = false;
+      fullscreen = false;
       hyprland.context_aware_history = true;
       activation_mode.disabled = true;
       show_initial_entries = true;

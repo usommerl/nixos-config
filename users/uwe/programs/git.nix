@@ -57,7 +57,7 @@
       push = {
         default = "simple";
         followTags = true;
-        recourseSubmodules = "check";
+        recurseSubmodules = "check";
       };
 
       rebase = {
