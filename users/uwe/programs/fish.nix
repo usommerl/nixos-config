@@ -140,9 +140,6 @@ in
       gtr="git trim";
       gw="git worktree";
 
-      nrs="sudo nixos-rebuild switch --flake ${flakeRoot}";
-      nrt="sudo nixos-rebuild test --flake ${flakeRoot}";
-      nrb="sudo nixos-rebuild boot --flake ${flakeRoot}";
       nrl="nixos-rebuild list-generations --flake ${flakeRoot}";
       nfu="nix flake update";
     };

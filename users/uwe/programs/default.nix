@@ -12,6 +12,7 @@
     ./hyprland.nix
     ./keychain.nix
     ./neovim
+    ./nh.nix
     ./pulsemixer.nix
     ./ssh.nix
     ./starship.nix
