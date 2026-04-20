@@ -35,9 +35,9 @@
           ./hosts/${specialArgs.hostName}
           home-manager.nixosModules.home-manager
           nix-index-database.nixosModules.default
-          { programs.nix-index-database.comma.enable = true; }
           {
             nixpkgs.config.allowUnfree = true;
+            programs.nix-index-database.comma.enable = true;
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs = specialArgs;
