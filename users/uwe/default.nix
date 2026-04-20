@@ -17,6 +17,7 @@
     btop
     calibre
     certigo
+    deadnix
     docker-compose
     doggo
     dust
