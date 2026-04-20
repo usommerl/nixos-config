@@ -79,7 +79,6 @@ in
   environment.variables.EDITOR = "nvim";
   environment.systemPackages = with pkgs; [
     cifs-utils
-    comma
     curl
     git
     google-drive-ocamlfuse

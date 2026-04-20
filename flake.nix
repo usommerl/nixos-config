@@ -9,12 +9,18 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     walker.url = "github:abenz1267/walker?ref=v0.0.70";
   };
 
   outputs = inputs@{
     nixpkgs,
     home-manager,
+    nix-index-database,
     ...
   }:
   let
@@ -28,6 +34,8 @@
         modules = [
           ./hosts/${specialArgs.hostName}
           home-manager.nixosModules.home-manager
+          nix-index-database.nixosModules.default
+          { programs.nix-index-database.comma.enable = true; }
           {
             nixpkgs.config.allowUnfree = true;
             home-manager.useGlobalPkgs = true;
