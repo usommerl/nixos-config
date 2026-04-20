@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 let
   # I have found no way to determine the directory of the flake in pure evaluation mode.
   # Maybe this could be helpful in the future: https://github.com/NixOS/nix/issues/8034

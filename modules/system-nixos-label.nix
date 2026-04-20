@@ -1,4 +1,4 @@
-{ self, nixpkgs, lib, config, ... }:
+{ self, lib, config, ... }:
 with lib;
 let
 

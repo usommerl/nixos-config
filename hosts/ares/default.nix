@@ -1,4 +1,4 @@
-{ pkgs, config, lib, hostName, mainUser, ... }:
+{ pkgs, lib, hostName, mainUser, ... }:
 with lib;
 let
   mainUserMountConfig = ../../users/${mainUser}/mounts;
