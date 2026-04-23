@@ -41,7 +41,8 @@ in
     ./plugins/nvim-ufo.nix
     ./plugins/sideways-vim.nix
     ./plugins/statuscol.nix
-    ./plugins/telescope.nix
+    # ./plugins/telescope.nix
+    ./plugins/fzf-lua.nix
     ./plugins/treesitter.nix
     ./plugins/vim-rooter.nix
     ./plugins/which-key.nix
