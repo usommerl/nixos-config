@@ -42,7 +42,8 @@ in
     ./plugins/sideways-vim.nix
     ./plugins/statuscol.nix
     # ./plugins/telescope.nix
-    ./plugins/fzf-lua.nix
+    # ./plugins/fzf-lua.nix
+    ./plugins/snacks.nix
     ./plugins/treesitter.nix
     ./plugins/vim-rooter.nix
     ./plugins/which-key.nix
