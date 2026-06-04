@@ -198,9 +198,6 @@
     fileviewer *.tgz,*.tar.gz tar -tzf %c
     fileviewer *.tar.bz2,*.tbz2 tar -tjf %c
     fileviewer *.tar.txz,*.txz xz --list %c
-    filetype *.rar
-           \ {Mount with rar2fs}
-           \ FUSE_MOUNT|rar2fs %SOURCE_FILE %DESTINATION_DIR,
 
     fileviewer *.rar unrar v %c
     filetype *.iso
@@ -258,7 +255,6 @@
     inkscape
     mount-zip
     mpv
-    rar2fs
     sshfs
     vifm
     zathura

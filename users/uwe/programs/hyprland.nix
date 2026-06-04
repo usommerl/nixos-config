@@ -8,6 +8,7 @@
   ];
 
   wayland.windowManager.hyprland = {
+    configType = "hyprlang";
     enable = true;
     systemd.enable = true;
     extraConfig = ''
@@ -99,7 +100,6 @@
       bind = SUPER, E, exec, alacritty -e vifm
       bind = SUPER, V, togglefloating,
       bind = SUPER, P, pseudo, # dwindle
-      bind = SUPER, Space, togglesplit, # dwindle
       bind = SUPER SHIFT, Pause, exec, systemctl suspend
       bind = SUPER SHIFT CTRL, s, exec, poweroff
 

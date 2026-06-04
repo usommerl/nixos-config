@@ -1,5 +1,9 @@
+{config, ...}:
 {
-  programs.firefox.enable = true;
+  programs.firefox = {
+    enable = true;
+    configPath = "${config.xdg.configHome}/mozilla/firefox";
+  };
 
   xdg.desktopEntries.firefox = {
     name = "Firefox";
