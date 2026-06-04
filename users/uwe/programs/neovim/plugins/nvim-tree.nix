@@ -11,7 +11,7 @@
       config = ''
         --- Nvim-Tree plugin ------------------------------------------------------
 
-        vim.keymap.set('n', '<leader>e', ':NvimTreeFindFileToggle<cr>', { desc = "Open file tree" })
+        vim.keymap.set('n', '<leader>e', ':NvimTreeFindFileToggle<cr>', { desc = "Open file tree", silent = true })
 
         local function on_attach(bufnr)
           local api = require('nvim-tree.api')
