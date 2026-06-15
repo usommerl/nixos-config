@@ -200,21 +200,10 @@
     fileviewer *.tar.txz,*.txz xz --list %c
 
     fileviewer *.rar unrar v %c
-    filetype *.iso
-           \ {Mount with fuseiso}
-           \ FUSE_MOUNT|fuseiso %SOURCE_FILE %DESTINATION_DIR,
 
     filetype *.ssh
            \ {Mount with sshfs}
            \ FUSE_MOUNT2|sshfs %PARAM %DESTINATION_DIR,
-
-    filetype *.ftp
-           \ {Mount with curlftpfs}
-           \ FUSE_MOUNT2|curlftpfs -o ftp_port=-,,disable_eprt %PARAM %DESTINATION_DIR,
-
-    filetype *.7z
-           \ {Mount with fuse-7z-ng}
-           \ FUSE_MOUNT|fuse-7z-ng %SOURCE_FILE %DESTINATION_DIR,
 
     fileviewer *.7z 7z l %c
     filextype *.odt,*.doc,*.docx,*.xls,*.xlsx,*.odp,*.pptx libreoffice %f &
@@ -248,10 +237,7 @@
   home.packages = with pkgs; [
     alacritty
     archivemount
-    curlftpfs
     feh
-    fuseiso
-    fuse-7z-ng
     inkscape
     mount-zip
     mpv
