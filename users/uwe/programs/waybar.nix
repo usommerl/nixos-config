@@ -115,8 +115,10 @@ with lib;
   };
 
   wayland.windowManager.hyprland.extraConfig = mkIf config.wayland.windowManager.hyprland.enable ''
-    exec-once = waybar
-    exec-once = sleep 2; pkill -SIGKILL '.*waybar.*'
-    bind = SUPER, B, exec, pkill -SIGKILL '.*waybar.*' || waybar
+    hl.on("hyprland.start", function()
+      hl.exec_cmd("waybar")
+      hl.exec_cmd("sleep 2; pkill -SIGKILL '.*waybar.*'")
+    end)
+    hl.bind("SUPER + B", hl.dsp.exec_cmd("pkill -SIGKILL '.*waybar.*' || waybar"))
   '';
 }

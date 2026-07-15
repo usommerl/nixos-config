@@ -206,7 +206,9 @@ with lib;
   };
 
   wayland.windowManager.hyprland.extraConfig = mkIf config.wayland.windowManager.hyprland.enable ''
-    exec-once = walker --gapplication-service
-    bind = SUPER, R, exec, walker
+    hl.on("hyprland.start", function()
+      hl.exec_cmd("walker --gapplication-service")
+    end)
+    hl.bind("SUPER + R", hl.dsp.exec_cmd("walker"))
   '';
 }

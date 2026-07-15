@@ -8,150 +8,151 @@
   ];
 
   wayland.windowManager.hyprland = {
-    configType = "hyprlang";
+    configType = "lua";
     enable = true;
     systemd.enable = true;
     extraConfig = ''
-      # See https://wiki.hyprland.org/Configuring/Monitors/
-      monitor=,preferred,auto,auto
+      -- See https://wiki.hypr.land/Configuring/Basics/Monitors/
+      hl.monitor({ output = "", mode = "preferred", position = "auto", scale = "auto" })
 
-      env = XCURSOR_SIZE,24
-      env = XCURSOR_THEME,Adwaita
-      exec-once = hyprctl setcursor Adwaita 24
+      -- Environment variables / cursor
+      hl.env("XCURSOR_SIZE", "24")
+      hl.env("XCURSOR_THEME", "Adwaita")
+      hl.on("hyprland.start", function()
+        hl.exec_cmd("hyprctl setcursor Adwaita 24")
+      end)
 
-      input {
-        kb_layout = de
-        kb_variant = nodeadkeys
-        kb_model =
-        kb_options =
-        kb_rules =
+      hl.config({
+        input = {
+          kb_layout = "de",
+          kb_variant = "nodeadkeys",
+          kb_model = "",
+          kb_options = "",
+          kb_rules = "",
 
-        repeat_delay = 300
-        repeat_rate = 50
-      }
+          repeat_delay = 300,
+          repeat_rate = 50,
+        },
 
-      general {
-        gaps_in = 1
-        gaps_out = 2
-        border_size = 1
-        col.active_border = rgba(ffcb6bee)
-        col.inactive_border = rgba(00000000)
+        general = {
+          gaps_in = 1,
+          gaps_out = 2,
+          border_size = 1,
+          col = {
+            active_border = "rgba(ffcb6bee)",
+            inactive_border = "rgba(00000000)",
+          },
 
-        layout = dwindle
-        allow_tearing = false
-      }
+          layout = "dwindle",
+          allow_tearing = false,
+        },
 
-      decoration {
-        rounding = 0
+        decoration = {
+          rounding = 0,
 
-        blur {
-          enabled = true
-          size = 3
-          passes = 1
+          blur = {
+            enabled = true,
+            size = 3,
+            passes = 1,
 
-          vibrancy = 0.1696
-        }
+            vibrancy = 0.1696,
+          },
 
-        shadow {
-          enabled = true
-          range = 4
-          render_power = 3
-          color = rgba(1a1a1aee)
-        }
-      }
+          shadow = {
+            enabled = true,
+            range = 4,
+            render_power = 3,
+            color = "rgba(1a1a1aee)",
+          },
+        },
 
-      animations {
-        enabled = true
+        animations = {
+          enabled = true,
+        },
 
-        bezier = myBezier, 0.05, 0.9, 0.1, 1.05
+        dwindle = {
+          preserve_split = true, -- you probably want this
+        },
 
-        animation = windows, 1, 3, myBezier
-        animation = windowsOut, 1, 3, default, popin 80%
-        animation = border, 1, 5, default
-        animation = borderangle, 1, 3, default
-        animation = fade, 1, 3, default
-        animation = workspaces, 1, 1, default
-      }
+        misc = {
+          force_default_wallpaper = 0,
+          disable_hyprland_logo = true,
+          background_color = 0x222436,
+        },
 
-      dwindle {
-        preserve_split = true # you probably want this
-      }
+        ecosystem = {
+          no_update_news = true,
+          no_donation_nag = true,
+        },
+      })
 
-      misc {
-        force_default_wallpaper = 0
-        disable_hyprland_logo = true
-        background_color = 0x222436
-      }
+      -- Animation curves and animations, see https://wiki.hypr.land/Configuring/Advanced-and-Cool/Animations/
+      hl.curve("myBezier", { type = "bezier", points = { {0.05, 0.9}, {0.1, 1.05} } })
 
-      # Replicate “smart gaps” / “no gaps when only” from other WMs/Compositors
-      # See: https://wiki.hyprland.org/Configuring/Workspace-Rules/#smart-gaps
-      workspace = w[tv1], gapsout:0, gapsin:0
-      workspace = f[1], gapsout:0, gapsin:0
-      windowrule = border_size 0, match:float 0, match:workspace w[tv1]
-      windowrule = rounding 0, match:float 0, match:workspace w[tv1]
-      windowrule = border_size 0, match:float 0, match:workspace f[1]
-      windowrule = rounding 0, match:float 0, match:workspace f[1]
+      hl.animation({ leaf = "windows",     enabled = true, speed = 3, bezier = "myBezier" })
+      hl.animation({ leaf = "windowsOut",  enabled = true, speed = 3, bezier = "default", style = "popin 80%" })
+      hl.animation({ leaf = "border",      enabled = true, speed = 5, bezier = "default" })
+      hl.animation({ leaf = "borderangle", enabled = true, speed = 3, bezier = "default" })
+      hl.animation({ leaf = "fade",        enabled = true, speed = 3, bezier = "default" })
+      hl.animation({ leaf = "workspaces",  enabled = true, speed = 1, bezier = "default" })
 
-      # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
-      bind = SUPER, RETURN, exec, alacritty --working-directory "$(hyprcwd)"
-      bind = SUPER SHIFT, RETURN, exec, alacritty
-      bind = SUPER SHIFT, C, killactive,
-      bind = SUPER, M, fullscreen, 0
-      bind = SUPER, E, exec, alacritty -e vifm
-      bind = SUPER, V, togglefloating,
-      bind = SUPER, P, pseudo, # dwindle
-      bind = SUPER SHIFT, Pause, exec, systemctl suspend
-      bind = SUPER SHIFT CTRL, s, exec, poweroff
+      -- Replicate "smart gaps" / "no gaps when only" from other WMs/Compositors
+      -- See: https://wiki.hypr.land/Configuring/Basics/Workspace-Rules/#smart-gaps
+      hl.workspace_rule({ workspace = "w[tv1]", gaps_out = 0, gaps_in = 0 })
+      hl.workspace_rule({ workspace = "f[1]",   gaps_out = 0, gaps_in = 0 })
+      hl.window_rule({
+        name = "no-gaps-wtv1",
+        match = { float = false, workspace = "w[tv1]" },
+        border_size = 0,
+        rounding = 0,
+      })
+      hl.window_rule({
+        name = "no-gaps-f1",
+        match = { float = false, workspace = "f[1]" },
+        border_size = 0,
+        rounding = 0,
+      })
 
-      # Move focus
-      binde = SUPER, j, cyclenext
-      binde = SUPER, k, cyclenext, prev
+      -- Binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
+      local mainMod = "SUPER"
 
+      hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd('alacritty --working-directory "$(hyprcwd)"'))
+      hl.bind(mainMod .. " + SHIFT + RETURN", hl.dsp.exec_cmd("alacritty"))
+      hl.bind(mainMod .. " + SHIFT + C", hl.dsp.window.close())
+      hl.bind(mainMod .. " + M", hl.dsp.window.fullscreen({ mode = "fullscreen" }))
+      hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("alacritty -e vifm"))
+      hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
+      hl.bind(mainMod .. " + P", hl.dsp.window.pseudo()) -- dwindle
+      hl.bind(mainMod .. " + SHIFT + Pause", hl.dsp.exec_cmd("systemctl suspend"))
+      hl.bind(mainMod .. " + SHIFT + CTRL + s", hl.dsp.exec_cmd("poweroff"))
 
-      # Move window
-      binde = SUPER SHIFT, h, movewindow, l
-      binde = SUPER SHIFT, l, movewindow, r
-      binde = SUPER SHIFT, k, movewindow, u
-      binde = SUPER SHIFT, j, movewindow, d
+      -- Move focus
+      hl.bind(mainMod .. " + j", hl.dsp.window.cycle_next(), { repeating = true })
+      hl.bind(mainMod .. " + k", hl.dsp.window.cycle_next({ next = false }), { repeating = true })
 
-      # Resize window
-      binde = SUPER CTRL, h, resizeactive, -10 0
-      binde = SUPER CTRL, l, resizeactive, 10 0
-      binde = SUPER CTRL, k, resizeactive, 0 -10
-      binde = SUPER CTRL, j, resizeactive, 0 10
+      -- Move window
+      hl.bind(mainMod .. " + SHIFT + h", hl.dsp.window.move({ direction = "l" }), { repeating = true })
+      hl.bind(mainMod .. " + SHIFT + l", hl.dsp.window.move({ direction = "r" }), { repeating = true })
+      hl.bind(mainMod .. " + SHIFT + k", hl.dsp.window.move({ direction = "u" }), { repeating = true })
+      hl.bind(mainMod .. " + SHIFT + j", hl.dsp.window.move({ direction = "d" }), { repeating = true })
 
-      # Switch workspaces with SUPER + [0-9]
-      bind = SUPER, 1, workspace, 1
-      bind = SUPER, 2, workspace, 2
-      bind = SUPER, 3, workspace, 3
-      bind = SUPER, 4, workspace, 4
-      bind = SUPER, 5, workspace, 5
-      bind = SUPER, 6, workspace, 6
-      bind = SUPER, 7, workspace, 7
-      bind = SUPER, 8, workspace, 8
-      bind = SUPER, 9, workspace, 9
-      bind = SUPER, 0, workspace, 10
+      -- Resize window
+      hl.bind(mainMod .. " + CTRL + h", hl.dsp.window.resize({ x = -10, y = 0, relative = true }), { repeating = true })
+      hl.bind(mainMod .. " + CTRL + l", hl.dsp.window.resize({ x = 10, y = 0, relative = true }), { repeating = true })
+      hl.bind(mainMod .. " + CTRL + k", hl.dsp.window.resize({ x = 0, y = -10, relative = true }), { repeating = true })
+      hl.bind(mainMod .. " + CTRL + j", hl.dsp.window.resize({ x = 0, y = 10, relative = true }), { repeating = true })
 
-      # Move active window to a workspace with SUPER + SHIFT + [0-9]
-      bind = SUPER SHIFT, 1, movetoworkspacesilent, 1
-      bind = SUPER SHIFT, 2, movetoworkspacesilent, 2
-      bind = SUPER SHIFT, 3, movetoworkspacesilent, 3
-      bind = SUPER SHIFT, 4, movetoworkspacesilent, 4
-      bind = SUPER SHIFT, 5, movetoworkspacesilent, 5
-      bind = SUPER SHIFT, 6, movetoworkspacesilent, 6
-      bind = SUPER SHIFT, 7, movetoworkspacesilent, 7
-      bind = SUPER SHIFT, 8, movetoworkspacesilent, 8
-      bind = SUPER SHIFT, 9, movetoworkspacesilent, 9
-      bind = SUPER SHIFT, 0, movetoworkspacesilent, 10
+      -- Switch workspaces with SUPER + [0-9]
+      -- Move active window (silently) to a workspace with SUPER + SHIFT + [0-9]
+      for i = 1, 10 do
+        local key = i % 10 -- 10 maps to key 0
+        hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }))
+        hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i, follow = false }))
+      end
 
-      # "Hide" client by moving it to the special workspace
-      bind = SUPER, n, movetoworkspacesilent, special
-      bind = SUPER CTRL, n, togglespecialworkspace
-
-      ecosystem {
-        no_update_news = true
-        no_donation_nag = true
-      }
+      -- "Hide" client by moving it to the special workspace
+      hl.bind(mainMod .. " + n", hl.dsp.window.move({ workspace = "special", follow = false }))
+      hl.bind(mainMod .. " + CTRL + n", hl.dsp.workspace.toggle_special())
     '';
   };
 

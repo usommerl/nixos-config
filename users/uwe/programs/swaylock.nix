@@ -55,6 +55,6 @@ in
   };
 
   wayland.windowManager.hyprland.extraConfig = mkIf config.wayland.windowManager.hyprland.enable ''
-    bind = SUPER, Pause, exec, ${lockCmd}
+    hl.bind("SUPER + Pause", hl.dsp.exec_cmd("${lockCmd}"))
   '';
 }
