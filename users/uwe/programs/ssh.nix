@@ -1,11 +1,11 @@
 { ... }:
 with builtins;
 let
-  mkMatchBlocks = args : listToAttrs ( map (name: {
+  mkHostSettings = args : listToAttrs ( map (name: {
     inherit name;
     value = {
-      hostname = "${name}.${args.domain}";
-      user = args.user;
+      HostName = "${name}.${args.domain}";
+      User = args.user;
     };
   }) args.names );
 in
@@ -13,20 +13,20 @@ in
   programs.ssh = {
     enable = true;
     enableDefaultConfig = false;
-    matchBlocks = {
+    settings = {
       "harpocrates" = {
-        hostname = "harpocrates.zebra-kitchen.ts.net";
-        port = 7022;
-        user = "uwe";
-        setEnv = {
+        HostName = "harpocrates.zebra-kitchen.ts.net";
+        Port = 7022;
+        User = "uwe";
+        SetEnv = {
           TERM = "xterm";
         };
       };
-    } // mkMatchBlocks {
+    } // mkHostSettings {
       user = "uwe";
       domain = "zebra-kitchen.ts.net";
       names = [ "ares" "dolus" "eris" "nyx" "ceto-mac" ];
-    } // mkMatchBlocks {
+    } // mkHostSettings {
       user = "uwe.sommerlatt";
       domain = "exelonix.com";
       names = [
